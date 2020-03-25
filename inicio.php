@@ -4,12 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>InfoFilm</title>
+    <title>InfoMovie</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
 		============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="img/logosn.ico">
     <!-- Google Fonts
 		============================================ -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
@@ -72,7 +72,7 @@
 <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
             <div class="sidebar-header">
-                <a href="index.html"><img class="main-logo" src="img/logo/logo.png" alt="" /></a>
+                <a href="index.php"><img class="main-logo" src="img/logo/logo.png" alt="" /></a>
                 <strong><img src="img/logo/logosn.png" alt="" /></strong>
             </div>
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
@@ -80,33 +80,21 @@
               
                     <ul class="metismenu" id="menu1">
 
-                   <li><a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="icon nalika-diamond icon-wrap"></i> <span class="mini-click-non">Lista Películas</span></a>
+                   <li><a class="has-arrow" href="#" aria-expanded="false"><i class="icon nalika-diamond icon-wrap"></i> <span class="mini-click-non">Lista Películas</span></a>
 				   </li>
 				   <ul class="submenu-angle" aria-expanded="false"></ul>
 				   
-				     <li><a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="icon nalika-diamond icon-wrap"></i> <span class="mini-click-non">Película Aleatoria</span></a>
+				     <li><a class="has-arrow" href="#" aria-expanded="false"><i class="icon nalika-diamond icon-wrap"></i> <span class="mini-click-non">Película Aleatoria</span></a>
 				   </li>
 				   <ul class="submenu-angle" aria-expanded="false"></ul>
 				   
                     <li>
 
-<?php
 
-    include("conex.php");
-
-    $sql = "SELECT * FROM genero ORDER BY 2;";
-
-    $result = mysqli_query($conex, $sql);
-
-?>
-
-    <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="icon nalika-diamond icon-wrap"></i> <span class="mini-click-non">Géneros</span></a>
+    <a class="has-arrow" href="#" aria-expanded="false"><i class="icon nalika-diamond icon-wrap"></i> <span class="mini-click-non">Géneros</span></a>
     <ul class="submenu-angle" aria-expanded="false">
-        <?php
-        while ($fila = mysqli_fetch_assoc($result)) {
-        echo "<li><a title='Google Map' href='google-map.html'><span class='mini-sub-pro'>". $fila['nom_gen'] ."</span></a></li>";
-        }
-        ?>
+		<li><a href='#'span class='mini-sub-pro'>Género 1</span></a></li>
+		<li><a href='#'><span class='mini-sub-pro'>Género 2</span></a></li>
         
     </ul>
 </li>
@@ -156,17 +144,17 @@
                                                 <li class="nav-item">
                                                     <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
 															<i class="icon nalika-user"></i>
-															<span class="admin-name">Invitado</span>
+															<span class="admin-name">Usuario</span>
 															<i class="icon nalika-down-arrow nalika-angle-dw"></i>
 														</a>
                                                     <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
-                                                        <li><a href="register.html"><span class="icon nalika-home author-log-ic"></span> Registrarse</a>
+                                                        <li><a href="#"><span class="icon nalika-home author-log-ic"></span> Registrarse</a>
                                                         </li>
-                                                        <li><a href="login.html"><span class="icon nalika-user author-log-ic"></span> Iniciar Sesión</a>
+                                                        <li><a href="#"><span class="icon nalika-user author-log-ic"></span> Iniciar Sesión</a>
                                                         </li>
                                                         <li><a href="#"><span class="icon nalika-user author-log-ic"></span> Mis aportes</a>
                                                         </li>
-                                                        <li><a href="login.html"><span class="icon nalika-unlocked author-log-ic"></span> Cerrar Sesión</a>
+                                                        <li><a href="#"><span class="icon nalika-unlocked author-log-ic"></span> Cerrar Sesión</a>
                                                         </li>
                                                     </ul>
                                                 </li>
@@ -191,19 +179,9 @@
                                         </li>
                                         <li><a data-toggle="collapse" data-target="#Charts" href="#">Géneros <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                             <ul class="collapse dropdown-header-top">
-                                            <?php
-                                        
-                                            
-                                            $sql2 = "SELECT * FROM genero ORDER BY 2;";
-
-                                            $result2 = mysqli_query($conex, $sql2);
-
-
-
-                                                 while ($fila2 = mysqli_fetch_assoc($result2)) {
-                                                echo "<li><a href='google-map.html'>". $fila2['nom_gen'] ."</a></li>";
-                                               }
-                                                 ?>
+												<li><a href='#'>Género 1</a></li>
+												<li><a href='#'>Género 2</a></li>
+                                               
                                             </ul>
                                         </li>
                                     </ul>
