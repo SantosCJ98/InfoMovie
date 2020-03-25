@@ -62,6 +62,7 @@
     <!-- modernizr JS
 		============================================ -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+	
 </head>
 
 <body>
@@ -80,19 +81,23 @@
               
                     <ul class="metismenu" id="menu1">
 
-                   <li><a class="has-arrow" href="#" aria-expanded="false"><i class="icon nalika-diamond icon-wrap"></i> <span class="mini-click-non">Lista Películas</span></a>
-				   </li>
-				   <ul class="submenu-angle" aria-expanded="false"></ul>
-				   
-				     <li><a class="has-arrow" href="#" aria-expanded="false"><i class="icon nalika-diamond icon-wrap"></i> <span class="mini-click-non">Película Aleatoria</span></a>
-				   </li>
-				   <ul class="submenu-angle" aria-expanded="false"></ul>
+                  <li><a class="has-arrow" href="#" aria-expanded="false"><i class="icon nalika-diamond icon-wrap"></i> <span class="mini-click-non">Películas</span></a>
+					<ul class="submenu-angle" aria-expanded="false">
+					<li><a href='#'span class='mini-sub-pro'>Añadir película</span></a></li>
+					<li><a href='#'span class='mini-sub-pro'>Del 0 al 9</span></a></li>
+					<li><a href='#'><span class='mini-sub-pro'>De la A a la N</span></a></li>
+					<li><a href='#'><span class='mini-sub-pro'>De la Ñ a la Z</span></a></li>
+					<li><a href='#'><span class='mini-sub-pro'>Otros</span></a></li>
+					</ul>
+					
+					</li>
 				   
                     <li>
 
 
     <a class="has-arrow" href="#" aria-expanded="false"><i class="icon nalika-diamond icon-wrap"></i> <span class="mini-click-non">Géneros</span></a>
     <ul class="submenu-angle" aria-expanded="false">
+		<li><a href='#'span class='mini-sub-pro'>Añadir género</span></a></li>
 		<li><a href='#'span class='mini-sub-pro'>Género 1</span></a></li>
 		<li><a href='#'><span class='mini-sub-pro'>Género 2</span></a></li>
         
@@ -175,10 +180,24 @@
                             <div class="mobile-menu">
                                 <nav id="dropdown">
                                     <ul class="mobile-menu-nav">
+									
+									<li><a data-toggle="collapse" data-target="#Charts" href="#">Películas<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
+                                            <ul class="collapse dropdown-header-top">
+												<li><a href='#'>Añadir película</a></li>
+												<li><a href='#'>Del 0 al 9</a></li>
+												<li><a href='#'>De la A a la N</a></li>
+												<li><a href='#'>De la Ñ a la Z</a></li>
+												<li><a href='#'>Otros</a></li>
+                                            </ul>
+                                        </li>
+									
+									
+									
                                     <li><a data-toggle="collapse" data-target="#demo" href="#">Película Aleatoria<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                         </li>
                                         <li><a data-toggle="collapse" data-target="#Charts" href="#">Géneros <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                             <ul class="collapse dropdown-header-top">
+												<li><a href='#'>Añadir género</a></li>
 												<li><a href='#'>Género 1</a></li>
 												<li><a href='#'>Género 2</a></li>
                                                
