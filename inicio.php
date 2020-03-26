@@ -153,8 +153,9 @@ echo "<li><a href='porgenero.php?id=".$fila['id_gen']."'span class='mini-sub-pro
                                         <div class="header-top-menu tabl-d-n hd-search-rp">
                                             <div class="breadcome-heading">
 												<form role="search" class="">
+                                                    
 													<input type="text" placeholder="Buscar película" class="form-control">
-													<a href=""><i class="fa fa-search"></i></a>
+													
 												</form>
 											</div>
                                         </div>
@@ -190,7 +191,19 @@ echo "<li><a href='porgenero.php?id=".$fila['id_gen']."'span class='mini-sub-pro
             </div>
             <!-- Mobile Menu start -->
             <div class="mobile-menu-area">
+                <br>
+                <div class="buscar">
+            <div class="breadcome-heading">
+												<form role="search" class="">
+													<input type="text" placeholder="Buscar película" class="form-control">
+													<a href=""><i class="fa fa-search"></i></a>
+												</form>
+                                            </div>
+</div>    
+                                        
+                                    
                 <div class="container">
+               
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="mobile-menu">
@@ -230,6 +243,8 @@ echo "<li><a href='porgenero.php?id=".$fila['id_gen']."'span class='mini-sub-pro
                                     </ul>
                                 </nav>
                             </div>
+                            <br>
+                            <br>
                         </div>
                     </div>
                 </div>
