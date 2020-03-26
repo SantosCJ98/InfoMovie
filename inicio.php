@@ -1,3 +1,6 @@
+<?php
+include("conex.php");
+?>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -7,6 +10,8 @@
     <title>InfoMovie</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/misestilos.css">
+
     <!-- favicon
 		============================================ -->
     <link rel="shortcut icon" type="image/x-icon" href="img/logosn.ico">
@@ -84,10 +89,10 @@
                   <li><a class="has-arrow" href="#" aria-expanded="false"><i class="icon nalika-diamond icon-wrap"></i> <span class="mini-click-non">Películas</span></a>
 					<ul class="submenu-angle" aria-expanded="false">
 					<li><a href='#'span class='mini-sub-pro'>Añadir película</span></a></li>
-					<li><a href='#'span class='mini-sub-pro'>Del 0 al 9</span></a></li>
-					<li><a href='#'><span class='mini-sub-pro'>De la A a la N</span></a></li>
-					<li><a href='#'><span class='mini-sub-pro'>De la Ñ a la Z</span></a></li>
-					<li><a href='#'><span class='mini-sub-pro'>Otros</span></a></li>
+					<li><a href='porinicial.php?id=0'span class='mini-sub-pro'>Del 0 al 9</span></a></li>
+					<li><a href='porinicial.php?id=1'><span class='mini-sub-pro'>De la A a la N</span></a></li>
+					<li><a href='porinicial.php?id=2'><span class='mini-sub-pro'>De la O a la Z</span></a></li>
+					<li><a href='porinicial.php?id=3'><span class='mini-sub-pro'>Otros</span></a></li>
 					</ul>
 					
 					</li>
@@ -98,8 +103,19 @@
     <a class="has-arrow" href="#" aria-expanded="false"><i class="icon nalika-diamond icon-wrap"></i> <span class="mini-click-non">Géneros</span></a>
     <ul class="submenu-angle" aria-expanded="false">
 		<li><a href='#'span class='mini-sub-pro'>Añadir género</span></a></li>
-		<li><a href='#'span class='mini-sub-pro'>Género 1</span></a></li>
-		<li><a href='#'><span class='mini-sub-pro'>Género 2</span></a></li>
+
+<?php
+
+$result = mysqli_query($conex, "SELECT * FROM genero ORDER BY 2;");
+
+while ($fila = mysqli_fetch_assoc($result)) {
+
+echo "<li><a href='porgenero.php?id=".$fila['id_gen']."'span class='mini-sub-pro'>".$fila['nom_gen']."</span></a></li>";
+
+}
+
+?>
+
         
     </ul>
 </li>
@@ -114,7 +130,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="logo-pro">
-                        <a href="index.html"><img class="main-logo" src="img/logo/logo.png" alt="" /></a>
+                        <a href="index.php"><img class="main-logo" src="img/logo/logo.png" alt="" /></a>
                     </div>
                 </div>
             </div>
@@ -184,22 +200,30 @@
 									<li><a data-toggle="collapse" data-target="#Charts" href="#">Películas<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                             <ul class="collapse dropdown-header-top">
 												<li><a href='#'>Añadir película</a></li>
-												<li><a href='#'>Del 0 al 9</a></li>
-												<li><a href='#'>De la A a la N</a></li>
-												<li><a href='#'>De la Ñ a la Z</a></li>
-												<li><a href='#'>Otros</a></li>
+												<li><a href='porinicial?id=0'>Del 0 al 9</a></li>
+												<li><a href='porinicial?id=1'>De la A a la N</a></li>
+												<li><a href='porinicial?id=2'>De la O a la Z</a></li>
+												<li><a href='porinicial?id=3'>Otros</a></li>
                                             </ul>
                                         </li>
 									
-									
-									
-                                    <li><a data-toggle="collapse" data-target="#demo" href="#">Película Aleatoria<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
-                                        </li>
+						
                                         <li><a data-toggle="collapse" data-target="#Charts" href="#">Géneros <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                             <ul class="collapse dropdown-header-top">
 												<li><a href='#'>Añadir género</a></li>
-												<li><a href='#'>Género 1</a></li>
-												<li><a href='#'>Género 2</a></li>
+												<?php
+
+                                                $result2 = mysqli_query($conex, "SELECT * FROM genero ORDER BY 2;");
+
+                                                while ($fila2 = mysqli_fetch_assoc($result2)) {
+
+                                                echo "<li><a href='porgenero.php?id=".$fila2['id_gen']."'span class='mini-sub-pro'>".$fila2['nom_gen']."</span></a></li>";
+
+}
+
+                                                ?>
+
+
                                                
                                             </ul>
                                         </li>
