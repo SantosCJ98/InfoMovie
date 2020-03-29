@@ -152,9 +152,9 @@ echo "<li><a href='porgenero.php?id=".$fila['id_gen']."'span class='mini-sub-pro
                                     <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
                                         <div class="header-top-menu tabl-d-n hd-search-rp">
                                             <div class="breadcome-heading">
-												<form role="search" class="">
+												<form role="search" action="buscar.php" method="POST" enctype="multipart/form-data" class="">
                                                     
-													<input type="text" placeholder="Buscar película" class="form-control">
+													<input type="text" name="buscar" placeholder="Buscar película" class="form-control">
 													
 												</form>
 											</div>
@@ -194,9 +194,10 @@ echo "<li><a href='porgenero.php?id=".$fila['id_gen']."'span class='mini-sub-pro
                 <br>
                 <div class="buscar">
             <div class="breadcome-heading">
-												<form role="search" class="">
-													<input type="text" placeholder="Buscar película" class="form-control">
-													<a href=""><i class="fa fa-search"></i></a>
+            <form role="search" action="buscar.php" method="POST" enctype="multipart/form-data" class="">
+                                                    
+													<input type="text" name="buscar" placeholder="Buscar película" class="form-control">
+													
 												</form>
                                             </div>
 </div>    
