@@ -1,5 +1,7 @@
 <?php
+session_start();
 include("conex.php");
+
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -88,7 +90,6 @@ include("conex.php");
 
                   <li><a class="has-arrow" href="#" aria-expanded="false"><i class="icon nalika-diamond icon-wrap"></i> <span class="mini-click-non">Películas</span></a>
 					<ul class="submenu-angle" aria-expanded="false">
-					<li><a href='#'span class='mini-sub-pro'>Añadir película</span></a></li>
 					<li><a href='porinicial.php?id=0'span class='mini-sub-pro'>Del 0 al 9</span></a></li>
 					<li><a href='porinicial.php?id=1'><span class='mini-sub-pro'>De la A a la N</span></a></li>
 					<li><a href='porinicial.php?id=2'><span class='mini-sub-pro'>De la O a la Z</span></a></li>
@@ -102,7 +103,6 @@ include("conex.php");
 
     <a class="has-arrow" href="#" aria-expanded="false"><i class="icon nalika-diamond icon-wrap"></i> <span class="mini-click-non">Géneros</span></a>
     <ul class="submenu-angle" aria-expanded="false">
-		<li><a href='#'span class='mini-sub-pro'>Añadir género</span></a></li>
 
 <?php
 
@@ -153,9 +153,12 @@ echo "<li><a href='porgenero.php?id=".$fila['id_gen']."'span class='mini-sub-pro
                                         <div class="header-top-menu tabl-d-n hd-search-rp">
                                             <div class="breadcome-heading">
 												<form role="search" action="buscar.php" method="POST" enctype="multipart/form-data" class="">
-                                                    
-													<input type="text" name="buscar" placeholder="Buscar película" class="form-control">
-													
+                                                    <table width="100%">
+                                                    <tr>
+													<td><input type="text" name="buscar" placeholder="Buscar película" class="form-control"></td>
+                                                    <td class="btn-buscar"><button type="submit" class="btn btn-custon-rounded-three btn-primary">Buscar</button></td>
+													</tr>
+                                                    </table>
 												</form>
 											</div>
                                         </div>
@@ -166,18 +169,49 @@ echo "<li><a href='porgenero.php?id=".$fila['id_gen']."'span class='mini-sub-pro
                                                 <li class="nav-item">
                                                     <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
 															<i class="icon nalika-user"></i>
-															<span class="admin-name">Usuario</span>
+                                                            <span class="admin-name">
+                                                            <?php
+                                                            
+                                                            if (isset($_SESSION['user'])) {
+
+                                                                echo $_SESSION['user'];
+
+                                                            }
+
+                                                            else {
+
+                                                                echo "Invitado";
+
+                                                            }
+
+                                                            ?>
+                                                            </span>
 															<i class="icon nalika-down-arrow nalika-angle-dw"></i>
 														</a>
                                                     <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
-                                                        <li><a href="#"><span class="icon nalika-home author-log-ic"></span> Registrarse</a>
+                                                        <?php
+                                                        if (!isset($_SESSION['user'])) {
+                                                        echo "<li><a href='register.php'><span class='icon nalika-home author-log-ic'></span>Registrarse</a>
                                                         </li>
-                                                        <li><a href="#"><span class="icon nalika-user author-log-ic"></span> Iniciar Sesión</a>
-                                                        </li>
-                                                        <li><a href="#"><span class="icon nalika-user author-log-ic"></span> Mis aportes</a>
-                                                        </li>
-                                                        <li><a href="#"><span class="icon nalika-unlocked author-log-ic"></span> Cerrar Sesión</a>
-                                                        </li>
+                                                        <li><a href='login.php'><span class='icon nalika-user author-log-ic'></span>Iniciar Sesión</a>
+                                                        </li>";
+                                                        }
+                                                        ?>
+                                                        <?php
+                                                        if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
+
+                                                        echo "<li><a href='admin.php'><span class='icon nalika-user author-log-ic'></span>Admn.</a>
+                                                        </li>";
+
+                                                        }
+
+                                                        ?>
+                                                        <?php
+                                                        if (isset($_SESSION['user'])) {
+                                                        echo "<li><a href='logout.php'><span class='icon nalika-unlocked author-log-ic'></span> Cerrar Sesión</a>
+                                                        </li>";
+                                                        }
+                                                        ?>
                                                     </ul>
                                                 </li>
                                             </ul>
@@ -196,7 +230,12 @@ echo "<li><a href='porgenero.php?id=".$fila['id_gen']."'span class='mini-sub-pro
             <div class="breadcome-heading">
             <form role="search" action="buscar.php" method="POST" enctype="multipart/form-data" class="">
                                                     
-													<input type="text" name="buscar" placeholder="Buscar película" class="form-control">
+            <table width="100%">
+                                                    <tr>
+													<td><input type="text" name="buscar" placeholder="Buscar película" class="form-control"></td>
+                                                    <td class="btn-buscar"><button type="submit" class="btn btn-custon-rounded-three btn-primary">Buscar</button></td>
+													</tr>
+                                                    </table>
 													
 												</form>
                                             </div>
@@ -213,7 +252,6 @@ echo "<li><a href='porgenero.php?id=".$fila['id_gen']."'span class='mini-sub-pro
 									
 									<li><a data-toggle="collapse" data-target="#Charts" href="#">Películas<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                             <ul class="collapse dropdown-header-top">
-												<li><a href='#'>Añadir película</a></li>
 												<li><a href='porinicial?id=0'>Del 0 al 9</a></li>
 												<li><a href='porinicial?id=1'>De la A a la N</a></li>
 												<li><a href='porinicial?id=2'>De la O a la Z</a></li>
@@ -224,7 +262,6 @@ echo "<li><a href='porgenero.php?id=".$fila['id_gen']."'span class='mini-sub-pro
 						
                                         <li><a data-toggle="collapse" data-target="#Charts" href="#">Géneros <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                             <ul class="collapse dropdown-header-top">
-												<li><a href='#'>Añadir género</a></li>
 												<?php
 
                                                 $result2 = mysqli_query($conex, "SELECT * FROM genero ORDER BY 2;");

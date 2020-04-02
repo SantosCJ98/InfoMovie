@@ -1,16 +1,9 @@
-.pelicula {
 
-    text-align: center;
+.boton {
 
-}
-
-.titulo {
-
-    margin: 0px auto;
-
-    color: white;
-
-    width: 50%;
+padding-bottom: 5%;
+width: 100%;
+display: inline-block;
 
 }
 
@@ -26,4 +19,16 @@
 
 }
 
+.buscar {
+
+    padding-left: 15%;
+    padding-right: 15%;
+
+}
+
+.portada {
+
+    display: inline-block;
+
+}
 

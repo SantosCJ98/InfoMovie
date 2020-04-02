@@ -78,48 +78,44 @@ else {
                                   
                                   <?php
 
-                                  if (mysqli_num_rows($resultpel) > 0) {
+if (mysqli_num_rows($resultpel) > 0) {
 
 
-                                    $dyn_table = "<table width='100%' cell_padding='10'>";
-                                    $i = 0;
+    $dyn_table = "<table width='100%'>";
+    $i = 0;
 
-                                      while ($filapel = mysqli_fetch_assoc($resultpel)) {
+      while ($filapel = mysqli_fetch_assoc($resultpel)) {
 
-                                        $portada = "<div class='pelicula'>
-                                
-                                        <img src='".$filapel['port_pel']."'>
+        $portada = "<img src='".$filapel['port_pel']."'>";
 
-                                        <div class='titulo'>
+        if ($i == 3) {
 
-                                        <h4>   </h4>
-                                        <br>";
+          $dyn_table .= "<tr> <td style='padding-bottom:3%;'><div class='portada'><a href='detallepelicula.php?id=".$filapel['cod_pel']."'>" . $portada . "<br><div class='boton'><button type='button' style='width:100%;' class='btn btn-custon-rounded-three btn-primary'>Info</button></div></div></a></td>";
 
-                                        if ($i == 2) {
+          $i = 0;
 
-                                          $dyn_table .= "<tr> <td>" . $portada . "</td>";
+        }
 
-                                          $i = 0;
+        else {
 
-                                        }
+          $dyn_table .= "<td style='padding-bottom:3%;'><div class='portada'><a href='detallepelicula.php?id=".$filapel['cod_pel']."'>" . $portada . "<br><div class='boton'><button type='button' style='width:100%;' class='btn btn-custon-rounded-three btn-primary'>Info</button></div></div></a></td>";
 
-                                        else {
+        }
+        
+        
 
-                                          $dyn_table .= "<td>" . $portada . "</td>";
+        $i++;
+        
 
-                                        }
+        
 
-                                        $i++;
+      }
 
-                                        
+      $dyn_table .= "</tr> </table>";
 
-                                      }
+      echo $dyn_table;
 
-                                      $dyn_table .= "</tr> </table>";
-
-                                      echo $dyn_table;
-
-                                    }
+    }
 
                                     else {
 
