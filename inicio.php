@@ -198,15 +198,6 @@ echo "<li><a href='porgenero.php?id=".$fila['id_gen']."'span class='mini-sub-pro
                                                         }
                                                         ?>
                                                         <?php
-                                                        if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
-
-                                                        echo "<li><a href='admin.php'><span class='icon nalika-user author-log-ic'></span>Admn.</a>
-                                                        </li>";
-
-                                                        }
-
-                                                        ?>
-                                                        <?php
                                                         if (isset($_SESSION['user'])) {
                                                         echo "<li><a href='logout.php'><span class='icon nalika-unlocked author-log-ic'></span> Cerrar Sesión</a>
                                                         </li>";

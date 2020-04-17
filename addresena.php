@@ -5,27 +5,15 @@
     include("inicio.php");
 
     if (!isset($_POST['submit']) || !isset($_SESSION['id'])) {
-    
 
-    header("Location: index.php");
+
+            echo "<script type='text/javascript'>
+             window.location='index.php';
+             </script>";
+     
 
 }
-    
-        $id_pel = $_POST['id'];
 
-		$sqlpel = "SELECT * FROM pelicula WHERE cod_pel = ".$id_pel.";";
-
-		$resultpel = mysqli_query($conex, $sqlpel);
-
-        $pelicula = mysqli_fetch_assoc($resultpel);
-        
-        $id_us = $_POST['us'];
-
-		$sqlus = "SELECT * FROM usuario WHERE cod_us = ".$id_us.";";
-
-		$resultus = mysqli_query($conex, $sqlus);
-
-        $usuario = mysqli_fetch_assoc($resultus);
         
 	
 	?>
@@ -69,7 +57,7 @@
 
                                         echo "<input type='hidden' name='id_us' value=".$id_us.">";
 
-                                        echo "<button type='submit' class='btn btn-custon-rounded-two btn-success'>Enviar reseña</button>";
+                                        echo "<button type='submit' name='submit' class='btn btn-custon-rounded-two btn-success'>Enviar reseña</button>";
                             
                                         echo "</form>";
 

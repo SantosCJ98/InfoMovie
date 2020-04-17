@@ -97,7 +97,7 @@
                                 </div>
                             </div>
                             <div class="text-center">
-                                <button type="submit" name="submit" class="btn btn-success loginbtn">Registrarse</button>
+                                <button type="submit" name="submit" class="btn btn-success loginbtn">Iniciar Sesión</button>
                             </div>
                         </form>
                     </div>

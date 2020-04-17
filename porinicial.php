@@ -72,48 +72,70 @@ else {
 
                                     echo "<h1>".$cadInicial."</h1>";
 
+                                     if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
+
+                                        echo "<h1><a href='anadirpelicula.php'><button class='btn btn-custon-rounded-three btn-danger'>Añadir pelicula</button></a></h1>";
+                                       
+       
+                                       }
+       
+                                        
+
                                 ?>
 
 <div class="tabla">
                                   
                                   <?php
 
-if (mysqli_num_rows($resultpel) > 0) {
+                                  if (mysqli_num_rows($resultpel) > 0) {
 
 
-    $dyn_table = "<table width='100%'>";
-    $i = 0;
+                                    $dyn_table = "<table width='100%'>";
+                                    $i = 0;
 
-      while ($filapel = mysqli_fetch_assoc($resultpel)) {
+                                      while ($filapel = mysqli_fetch_assoc($resultpel)) {
 
-        $portada = "<img src='".$filapel['port_pel']."'>";
+                                        $portada = "<img src='".$filapel['port_pel']."'>";
 
-        if ($i == 3) {
+                                        if ($i == 3) {
 
-          $dyn_table .= "<tr> <td style='padding-bottom:3%;'><div class='portada'><a href='detallepelicula.php?id=".$filapel['cod_pel']."'>" . $portada . "<br><div class='boton'><button type='button' style='width:100%;' class='btn btn-custon-rounded-three btn-primary'>Info</button></div></div></a></td>";
+                                          $dyn_table .= "<tr> <td style='padding-bottom:3%;'><div class='portada'><a href='detallepelicula.php?id=".$filapel['cod_pel']."'>" . $portada . "<br><div class='boton'><button type='button' style='width:100%;' class='btn btn-custon-rounded-three btn-primary'>Info</button></a>";
 
-          $i = 0;
+                                          
+                                         if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
+                                          
+                                         $dyn_table.= "<a href='editarpelicula.php?id=".$filapel['cod_pel']."'><button type='button' style='width:100%;' class='btn btn-custon-rounded-three btn-warning'>Editar</button></a><a href='borrarpelicula.php?id=".$filapel['cod_pel']."'><button type='button' style='width:100%;' class='btn btn-custon-rounded-three btn-danger'>Borrar</button></a></div></div></td>";
 
-        }
+                                         }
 
-        else {
+                                          $i = 0;
 
-          $dyn_table .= "<td style='padding-bottom:3%;'><div class='portada'><a href='detallepelicula.php?id=".$filapel['cod_pel']."'>" . $portada . "<br><div class='boton'><button type='button' style='width:100%;' class='btn btn-custon-rounded-three btn-primary'>Info</button></div></div></a></td>";
+                                        }
 
-        }
-        
-        
+                                        else {
 
-        $i++;
-        
+                                          $dyn_table .= "<td style='padding-bottom:3%;'><div class='portada'><a href='detallepelicula.php?id=".$filapel['cod_pel']."'>" . $portada . "<br><div class='boton'><button type='button' style='width:100%;' class='btn btn-custon-rounded-three btn-primary'>Info</button></a>";
+                                          
+                                          if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
+                                          
+                                            $dyn_table.= "<a href='editarpelicula.php?id=".$filapel['cod_pel']."'><button type='button' style='width:100%;' class='btn btn-custon-rounded-three btn-warning'>Editar</button></a><a href='borrarpelicula.php?id=".$filapel['cod_pel']."'><button type='button' style='width:100%;' class='btn btn-custon-rounded-three btn-danger'>Borrar</button></a></div></div></td>";
+   
+                                            }
 
-        
+                                        }
+                                        
+                                        
 
-      }
+                                        $i++;
+                                        
 
-      $dyn_table .= "</tr> </table>";
+                                        
 
-      echo $dyn_table;
+                                      }
+
+                                      $dyn_table .= "</tr> </table>";
+
+                                      echo $dyn_table;
 
     }
 

@@ -22,6 +22,15 @@
 
                                 <h1> Inicio </h1>
 
+                                <?php if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
+
+                                 echo "<h1><a href='anadirpelicula.php'><button class='btn btn-custon-rounded-three btn-danger'>Añadir pelicula</button></a></h1>";
+                                
+
+                                }
+
+                                  ?>
+
                                 <div class="tabla">
                                   
                                   <?php
@@ -38,7 +47,14 @@
 
                                         if ($i == 3) {
 
-                                          $dyn_table .= "<tr> <td style='padding-bottom:3%;'><div class='portada'><a href='detallepelicula.php?id=".$filapel['cod_pel']."'>" . $portada . "<br><div class='boton'><button type='button' style='width:100%;' class='btn btn-custon-rounded-three btn-primary'>Info</button></div></div></a></td>";
+                                          $dyn_table .= "<tr> <td style='padding-bottom:3%;'><div class='portada'><a href='detallepelicula.php?id=".$filapel['cod_pel']."'>" . $portada . "<br><div class='boton'><button type='button' style='width:100%;' class='btn btn-custon-rounded-three btn-primary'>Info</button></a>";
+
+                                          
+                                         if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
+                                          
+                                         $dyn_table.= "<a href='editarpelicula.php?id=".$filapel['cod_pel']."'><button type='button' style='width:100%;' class='btn btn-custon-rounded-three btn-warning'>Editar</button></a><a href='borrarpelicula.php?id=".$filapel['cod_pel']."'><button type='button' style='width:100%;' class='btn btn-custon-rounded-three btn-danger'>Borrar</button></a></div></div></td>";
+
+                                         }
 
                                           $i = 0;
 
@@ -46,7 +62,13 @@
 
                                         else {
 
-                                          $dyn_table .= "<td style='padding-bottom:3%;'><div class='portada'><a href='detallepelicula.php?id=".$filapel['cod_pel']."'>" . $portada . "<br><div class='boton'><button type='button' style='width:100%;' class='btn btn-custon-rounded-three btn-primary'>Info</button></div></div></a></td>";
+                                          $dyn_table .= "<td style='padding-bottom:3%;'><div class='portada'><a href='detallepelicula.php?id=".$filapel['cod_pel']."'>" . $portada . "<br><div class='boton'><button type='button' style='width:100%;' class='btn btn-custon-rounded-three btn-primary'>Info</button></a>";
+                                          
+                                          if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
+                                          
+                                            $dyn_table.= "<a href='editarpelicula.php?id=".$filapel['cod_pel']."'><button type='button' style='width:100%;' class='btn btn-custon-rounded-three btn-warning'>Editar</button></a><a href='borrarpelicula.php?id=".$filapel['cod_pel']."'><button type='button' style='width:100%;' class='btn btn-custon-rounded-three btn-danger'>Borrar</button></a></div></div></td>";
+   
+                                            }
 
                                         }
                                         
