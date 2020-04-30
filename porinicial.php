@@ -6,9 +6,11 @@
 
 <?php
 
-if (!isset($_GET['id'])) {
+if (!isset($_GET['id']) || $_GET['id'] == null) {
 
-    header("Location: index.php");
+    echo "<script type='text/javascript'>
+        window.location='index.php';
+        </script>";
 
 }
 
@@ -42,12 +44,20 @@ else {
 
     }
 
-    else {
+    else if ($idInicial == 3) {
 
         $sqlpel = "SELECT * FROM pelicula WHERE nom_pel NOT BETWEEN '0%' AND '9%' AND nom_pel NOT BETWEEN 'A%' AND 'Z%'  ORDER BY nom_pel;";
 
         $cadInicial = "Películas con otros caracteres.";
 
+    }
+
+    else {
+
+            echo "<script type='text/javascript'>
+            window.location='index.php';
+            </script>";
+          
     }
 
    

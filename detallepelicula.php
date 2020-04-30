@@ -1,10 +1,21 @@
-	<?php
+<style type="text/css">
+td
+{
+    padding: 0 15px;
+}
+</style>
+
+<?php
 	
-	if (!isset($_GET['id'])) {
+if (!isset($_GET['id']) || $_GET['id'] == null) {
 
-		header("Location: index.php");
+  echo "<script type='text/javascript'>
+  window.location='index.php';
+  </script>";
 
-	}
+}
+
+
 
 	include("inicio.php");
 
@@ -13,6 +24,15 @@
 		$sqlpel = "SELECT * FROM pelicula WHERE cod_pel = ".$id_pel.";";
 
 		$resultpel = mysqli_query($conex, $sqlpel);
+
+		if (mysqli_num_rows($resultpel) < 1) {
+
+				echo "<script type='text/javascript'>
+				window.location='index.php';
+				</script>";
+			
+
+		} 
 
 		$pelicula = mysqli_fetch_assoc($resultpel);
 
@@ -48,11 +68,39 @@
 
 								<?php
 
-								echo "<h1>".$pelicula['nom_pel']."</h1>
+								echo "<h1>".$pelicula['nom_pel']."</h1>";
 
-								<table width=100%>
+								if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
+
+
+								
+
+								echo "<table width=100%>
+
 								<tr>
-								<td align='center'rowspan='5'><img src='".$pelicula['port_pel']."'></td>
+
+								<td align='center'>
+								<a href='editarpelicula.php?id=".$_GET['id']."'><button type='button' style='width:50%;' class='btn btn-custon-rounded-three btn-warning'>Editar película</button></a>
+								</td>
+
+								<td align='center'>
+
+								<a href='borrarpelicula.php?id=".$_GET['id']."'><button type='button' style='width:50%;' class='btn btn-custon-rounded-three btn-danger'>Borrar película</button></a>
+
+								</td>
+
+								</tr>
+
+								</table>
+
+								<br>";
+
+								}
+
+
+								echo "<table width=100%>
+								<tr> 
+								<td align='center'rowspan='5'><img src='".$pelicula['port_pel']."' width=185 height=278></td>
 								</tr>
 								<tr>
 								<td><b>Nombre: </b>".$pelicula['nom_pel']."</td>
@@ -77,7 +125,7 @@
 								<form action='addresena.php' method='POST' enctype='multipart/form-data'>
 								<input type='hidden' name='id' value=".$pelicula['cod_pel'].">
 								<input type='hidden' name='us' value=".$_SESSION['id'].">
-								<button type='submit' name='submit' class='btn btn-custon-rounded-three btn-danger'>Escribir reseña</button>
+								<button type='submit' name='submit' class='btn btn-custon-rounded-three btn-primary'>Escribir reseña</button>
 								</form>
 
 								</td>
@@ -164,6 +212,12 @@ else {
 		echo "<tr>";
 
 		echo "<td colspan='2'> <h5>".$desc."<h5></td>";
+
+		if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
+
+		echo "<td><a href='borraresena.php?id=".$resena['cod_res']."'><button class='btn btn-custon-rounded-three btn-danger'>Borrar</button></td></a>";
+
+		}
 
 		echo "</tr>";
 

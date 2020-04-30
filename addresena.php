@@ -14,6 +14,16 @@
 
 }
 
+else {
+
+    $sqlpel = "SELECT * FROM pelicula WHERE cod_pel = ".$_POST['id'].";";
+
+    $resultpel = mysqli_query($conex, $sqlpel);
+
+    $pelicula = mysqli_fetch_assoc($resultpel);
+
+}
+
         
 	
 	?>
@@ -53,9 +63,9 @@
                                         </table>
                                         <br>";
 
-                                        echo "<input type='hidden' name='id_pel' value=".$id_pel.">";
+                                        echo "<input type='hidden' name='id_pel' value=".$pelicula['cod_pel'].">";
 
-                                        echo "<input type='hidden' name='id_us' value=".$id_us.">";
+                                        echo "<input type='hidden' name='id_us' value=".$_SESSION['id'].">";
 
                                         echo "<button type='submit' name='submit' class='btn btn-custon-rounded-two btn-success'>Enviar reseña</button>";
                             

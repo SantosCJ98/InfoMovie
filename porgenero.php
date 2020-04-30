@@ -6,9 +6,11 @@
 
 <?php
 
-if (!isset($_GET['id'])) {
+if (!isset($_GET['id']) || $_GET['id'] == null) {
 
-    header("Location: index.php");
+  echo "<script type='text/javascript'>
+  window.location='index.php';
+  </script>";
 
 }
 
@@ -27,7 +29,16 @@ else {
 
     $resultgen = mysqli_query($conex, $sqlgen);
 
+    if (mysqli_num_rows($resultgen) < 1) {
+
+        echo "<script type='text/javascript'>
+        window.location='index.php';
+        </script>";
+
+    }
+
     $nomgen = mysqli_fetch_assoc($resultgen);
+
 
 }
 

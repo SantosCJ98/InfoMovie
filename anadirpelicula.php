@@ -53,7 +53,7 @@ $sql = "SELECT * FROM genero;";
 
                                         echo "<br><h5>Portada:</h5>";
 
-                                        echo "<input required class='file-image' type='file' name='port' accept='image/*' placeholder='Sube una portada'>";
+                                        echo "<input type='text' required name='port' class='form-control' placeholder='URL de portada'>";
 
                                         echo "<br><h5>Fecha de estreno:</h5>";
 

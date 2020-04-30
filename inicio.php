@@ -81,7 +81,6 @@ include("conex.php");
         <nav id="sidebar" class="">
             <div class="sidebar-header">
                 <a href="index.php"><img class="main-logo" src="img/logo/logo.png" alt="" /></a>
-                <strong><img src="img/logo/logosn.png" alt="" /></strong>
             </div>
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
                 <nav class="sidebar-nav left-sidebar-menu-pro">
@@ -119,6 +118,9 @@ echo "<li><a href='porgenero.php?id=".$fila['id_gen']."'span class='mini-sub-pro
         
     </ul>
 </li>
+
+
+
                     </ul>
                 </nav>
             </div>

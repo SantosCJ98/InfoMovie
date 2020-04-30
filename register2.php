@@ -14,21 +14,28 @@ $pass = md5($_POST['pass']);
 
 $email = $_POST['email'];
 
-$q = "SELECT * FROM usuario WHERE em_us = '".$email."';";
+$q = "SELECT * FROM usuario WHERE em_us = '".$email."' OR nom_us = '".$user."';";
+
+
 
 $sq = mysqli_query($conex, $q);
 
-if (mysqli_num_rows($sq > 0)) {
+if (mysqli_num_rows($sq) > 0) {
 
-    header("Location: register.php");
+    header("Location: erroregistro.php");
 
 }
+
+else {
 
 $query = "INSERT INTO usuario (nom_us, em_us, pass_us, admin_us) VALUES ('".$user."', '".$email."', '".$pass."', 0);";
 
 $sql = mysqli_query($conex, $query);
 
 header("Location: login.php");
+
+}
+
 
 
 

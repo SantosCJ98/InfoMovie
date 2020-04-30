@@ -2,85 +2,28 @@
 
 session_start();
 
-if (!isset($_POST['submit']) || !isset($_SESSION['id'])) {
+if (!isset($_POST['submit']) || !isset($_SESSION['admin']) || $_SESSION['admin'] == 0) {
     
 
-    header("Location: index.php");
+    echo "<script type='text/javascript'>
+     window.location='index.php';
+    </script>";
 
 }
 
-
-function resizeImage($resourceType, $ancho, $alto) {
-
-    $nuevoAncho = 185;
-
-    $nuevoAlto = 278;
-
-    $imageLayer = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
-
-    imagecopyresampled($imageLayer, $resourceType, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
-
-    return $imageLayer;
-
- }
-
- $imageProcess = 0;
-
- if (is_array($_FILES)) {
-
-    $nombreArchivo = $_FILES['port']['tmp_name'];
-
-    $propiedades = getimagesize($nombreArchivo);
-
-    $cambiartamaño = time();
-
-    $directorio = "./uploads/";
-
-    $pathinfo = pathinfo($_FILES['port']['name'], PATHINFO_EXTENSION);
-
-    $uploadImageType =  $propiedades[2];
-
-    $anchura = $propiedades[0];
-
-    $altura = $propiedades[1];
-
-    $nombre = "thump_".$cambiartamaño.".".$pathinfo;
-
-    switch($uploadImageType) {
-
-        case IMAGETYPE_JPEG:
-
-            $resourceType = imagecreatefromjpeg($nombreArchivo);
-            $imageLayer = resizeImage($resourceType, $anchura, $altura);
-            imagejpeg($imageLayer, $directorio.$nombre);
-        break;
-
-        case IMAGETYPE_GIF:
-
-            $resourceType = imagecreatefromgif($nombreArchivo);
-            $imageLayer = resizeImage($resourceType, $anchura, $altura);
-            imagegif($imageLayer, $directorio.$nombre);
-        break;
-
-        case IMAGETYPE_PNG:
-
-            $resourceType = imagecreatefrompng($nombreArchivo);
-            $imageLayer = resizeImage($resourceType, $anchura, $altura);
-            imagepng($imageLayer, $directorio.$nombre);
-        break;
-
-        default:
-        $imageProcess = 0;
-    break;
-
-    move_uploaded_file($file, $directorio.$cambiartamaño.".".$pathinfo);
-    $imageProcess = 1;
-
+function endsWith($haystack, $needle)
+{
+    $length = strlen($needle);
+    if ($length == 0) {
+        return true;
     }
 
- }
+    return (substr($haystack, -$length) === $needle);
+}
 
 include("conex.php");
+
+$portada = $_POST['port'];
 
 
 $titulo = $_POST['titulo'];
@@ -95,11 +38,39 @@ $img = $nombre;
 
 
 
-$q = "INSERT INTO pelicula (nom_pel, desc_pel, port_pel, fecha_pel, gen_pel) VALUES ('".$titulo."', '".$desc."', './uploads/".$img."', '".$fecha."', ".$genero.");";
+if (filter_var($portada, FILTER_VALIDATE_URL)) {
 
-$sq = mysqli_query($conex, $q);
+    if (endsWith($portada, ".jpg") || endsWith($portada, ".png") || endsWith($portada, ".gif")) {
 
-header("Location: index.php");
+        $q = "INSERT INTO pelicula (nom_pel, desc_pel, port_pel, fecha_pel, gen_pel) VALUES ('".$titulo."', '".$desc."', '".$portada."', '".$fecha."', ".$genero.");";
+
+    $sq = mysqli_query($conex, $q);
+
+    $q = "SELECT MAX(cod_pel) as max FROM pelicula;";
+
+    $max = mysqli_query($conex, $q);
+
+    $res = mysqli_fetch_assoc($max);
+
+    header("Location: detallepelicula.php?id=".$res['max']);
+
+    }
+
+    else {
+
+        header("Location: errorformato.php");
+
+    }
+
+
+}
+
+else {
+
+    header("Location: errorurl.php");
+
+
+}
 
 
 ?>

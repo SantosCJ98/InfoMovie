@@ -40,7 +40,7 @@ header("Location: index.php");
 
 else {
 
-    header("Location: login.php");
+    header("Location: errorlogin.php");
 
 }
 

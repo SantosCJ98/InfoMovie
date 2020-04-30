@@ -2,7 +2,14 @@
 
 session_start();
 
-session_destroy();
+if (!isset($_SESSION['admin']) || $_SESSION['admin'] == 0) {
+    
+
+  echo "<script type='text/javascript'>
+   window.location='index.php';
+   </script>";
+
+}     
 
 ?>
 
@@ -79,7 +86,7 @@ session_destroy();
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="back-link back-backend">
-                    <a href="index.php" class="btn btn-primary">Volver</a>
+                <a href="anadirpelicula.php" class="btn btn-primary">Intentar de nuevo</a>
                 </div>
             </div>
         </div>
@@ -89,29 +96,13 @@ session_destroy();
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
             <div class="col-md-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="text-center custom-login">
-                    <h3>Registro de usuario</h3>
+                    <h3>Se ha producido un error.</h3>
                 </div>
                 <div class="hpanel">
                     <div class="panel-body">
-                        <form action="register2.php" method="POST" enctype="multipart/form-data">
-                            <div class="row">
-                                <div class="form-group col-lg-12">
-                                    <label>Usuario</label>
-                                    <input name="user" type="text" required class="form-control">
-                                </div>
-                                <div class="form-group col-lg-6">
-                                    <label>Contraseña:</label>
-                                    <input name="pass" minlength="6" type="password" class="form-control">
-                                </div>
-                                <div class="form-group col-lg-6">
-                                    <label>Email:</label>
-                                    <input name="email" type="email" required class="form-control">
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <button type="submit" name="submit" class="btn btn-success loginbtn">Registrarse</button>
-                            </div>
-                        </form>
+                        
+                        <h2 style='color:black;'>Formato de imagen no válida. Asegurese de que la imagen esté en formato PNG, JPG, o GIF.</h2>
+
                     </div>
                 </div>
             </div>
