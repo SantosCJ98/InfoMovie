@@ -49,13 +49,13 @@ else {
 
                                         echo "<br><h5>Puntuación:</h5>";
 
-                                        echo "<table width='100%'>
+                                        echo "<table width='75%'>
                                         <tr>";
 
                                         for ($i = 0; $i <= 10; $i++) {
 
                                             echo "<td><input type='radio' required name='puntos' value='".$i."'>
-                                            <label for='".$i."'>".$i." puntos</label></td>";
+                                            <label for='".$i."'>".$i."</label></td>";
 
                                         }
 

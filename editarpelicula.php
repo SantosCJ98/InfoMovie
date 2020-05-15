@@ -86,6 +86,11 @@ $sql = "SELECT * FROM genero;";
 
                                         echo "<br><h5>Sinopsis:</h5> <textarea rows='5' required name='desc' class='form-control'>".$sinopsis."</textarea>";
 
+
+                                        echo "<br><h5>Portada:</h5>";
+
+                                        echo "<input type='text' required name='port' class='form-control' placeholder='URL de portada' value='".$portada."'>";
+
                                         echo "<br><h5>Fecha de estreno:</h5>";
 
                                         echo "<div class='input-group date'>

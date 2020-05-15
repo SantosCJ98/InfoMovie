@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+@session_start();
 
 if (!isset($_POST['submit']) || !isset($_SESSION['admin']) || $_SESSION['admin'] == 0) {
     

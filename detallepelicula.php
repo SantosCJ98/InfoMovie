@@ -1,4 +1,4 @@
-<style type="text/css">
+﻿<style type="text/css">
 td
 {
     padding: 0 15px;
@@ -51,8 +51,12 @@ if (!isset($_GET['id']) || $_GET['id'] == null) {
 		$sqlmires = "SELECT * FROM resena WHERE pel_res = ".$id_pel." AND us_res = ".$_SESSION['id'].";";
 
 		$resultmires = mysqli_query($conex, $sqlmires);
-
+		
+		
+		
 		}
+
+		
 	
 	?>
 
@@ -103,8 +107,18 @@ if (!isset($_GET['id']) || $_GET['id'] == null) {
 								<td align='center'rowspan='5'><img src='".$pelicula['port_pel']."' width=185 height=278></td>
 								</tr>
 								<tr>
-								<td><b>Nombre: </b>".$pelicula['nom_pel']."</td>
-								</tr>
+								<td><b>Nombre: </b>".$pelicula['nom_pel']."</td>";
+								
+									$sqlmedia = "SELECT AVG(puntos_res) as media FROM resena WHERE pel_res = ".$id_pel.";";
+
+		$resultmedia = mysqli_query($conex, $sqlmedia);
+		
+		$media = mysqli_fetch_assoc($resultmedia)['media'];
+		
+		if (mysqli_num_rows($resultres) > 0) {
+								
+							    echo "<td style='text-align:left'><b>Puntuación media: </b>".round($media, 2)."</td>"; }
+								echo "</tr>
 								<tr>
 								<td><b>Fecha de estreno: </b>".$pelicula['fecha_pel']."</td>
 								</tr>
@@ -112,7 +126,7 @@ if (!isset($_GET['id']) || $_GET['id'] == null) {
 								<td><b>Género: </b>".$genero['nom_gen']."</td>
 								</tr>
 								<tr>
-								<td style='width:80%';><b>Sinópsis: </b><br>".$pelicula['desc_pel']."</td>
+								<td colspan='2' style='width:80%';><b>Sinópsis: </b><br>".$pelicula['desc_pel']."</td>
 								</tr>";
 
 								if (isset($_SESSION['id']) && mysqli_num_rows($resultmires) < 1) {
@@ -202,6 +216,12 @@ else {
 		echo "<table width=100%>";
 
 		echo "<tr>";
+		
+			if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
+
+		echo "<td><a href='borraresena.php?id=".$resena['cod_res']."'><button class='btn btn-custon-rounded-three btn-danger'>Borrar</button></a></td>";
+
+		}
 
 		echo "<td width='70%'> <h4>".$puntos." puntos: ".$titulo."<h4></td>";
 
@@ -210,14 +230,9 @@ else {
 		echo "</tr>";
 
 		echo "<tr>";
+	
 
-		echo "<td colspan='2'> <h5>".$desc."<h5></td>";
-
-		if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
-
-		echo "<td><a href='borraresena.php?id=".$resena['cod_res']."'><button class='btn btn-custon-rounded-three btn-danger'>Borrar</button></td></a>";
-
-		}
+		echo "<td colspan='2'> <h5><br>".$desc."<h5></td>";
 
 		echo "</tr>";
 

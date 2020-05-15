@@ -2,14 +2,31 @@
 
 @session_start();
 
-if (!isset($_SESSION['admin']) || $_SESSION['admin'] == 0) {
+include("conex.php");
+
+if (!isset($_SESSION['admin']) || $_SESSION['admin'] == 0 || !isset($_GET['id']) || $_GET['id'] == null) {
     
 
   echo "<script type='text/javascript'>
    window.location='index.php';
    </script>";
 
-}     
+}
+
+$id_pel = $_GET['id'];
+
+		$sqlpel = "SELECT * FROM pelicula WHERE cod_pel = ".$id_pel.";";
+
+		$resultpel = mysqli_query($conex, $sqlpel);
+
+		if (mysqli_num_rows($resultpel) < 1) {
+
+				echo "<script type='text/javascript'>
+				window.location='index.php';
+				</script>";
+			
+
+		} 
 
 ?>
 
@@ -86,7 +103,7 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] == 0) {
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="back-link back-backend">
-                <a href="anadirpelicula.php" class="btn btn-primary">Intentar de nuevo</a>
+                    <a href="editarpelicula.php?id=<?php echo $_GET['id']; ?>" class="btn btn-primary">Intentar de nuevo</a>
                 </div>
             </div>
         </div>
@@ -101,7 +118,7 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] == 0) {
                 <div class="hpanel">
                     <div class="panel-body">
                         
-                        <h2 style='color:black;'>Formato de imagen no válida. Asegurese de que la imagen esté en formato PNG, JPG, o GIF.</h2>
+                        <h2 style='color:black;'>No se ha introducido una URL de imagen válida.</h2>
 
                     </div>
                 </div>

@@ -1,13 +1,14 @@
-<?php
+﻿<?php
 session_start();
 include("conex.php");
+
 
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html;" charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>InfoMovie</title>
     <meta name="description" content="">
@@ -102,10 +103,24 @@ include("conex.php");
 
     <a class="has-arrow" href="#" aria-expanded="false"><i class="icon nalika-diamond icon-wrap"></i> <span class="mini-click-non">Géneros</span></a>
     <ul class="submenu-angle" aria-expanded="false">
+        
+         <?php
+                                                
+                                                if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
+                                                
+                                            echo "<li><a href='generos.php'span class='mini-sub-pro'>Administrar</span></a></li>";
+                                            
+                                                }
+                                            
+                                            ?>
+        
+        
 
 <?php
 
 $result = mysqli_query($conex, "SELECT * FROM genero ORDER BY 2;");
+
+if (mysqli_num_rows($result) > 0) {
 
 while ($fila = mysqli_fetch_assoc($result)) {
 
@@ -113,11 +128,34 @@ echo "<li><a href='porgenero.php?id=".$fila['id_gen']."'span class='mini-sub-pro
 
 }
 
+}
+
+else {
+    
+    echo "<li><a href='#'span class='mini-sub-pro'>No hay géneros</span></a></li>";
+    
+}
+
 ?>
 
         
     </ul>
 </li>
+
+<?php
+
+    if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
+   
+                    echo '<li>
+
+
+    <a href="users.php" aria-expanded="false"><i class="icon nalika-diamond icon-wrap"></i> <span class="mini-click-non">Usuarios</span></a>
+    
+    </li>';
+    
+    }
+    
+    ?>
 
 
 
@@ -144,13 +182,6 @@ echo "<li><a href='porgenero.php?id=".$fila['id_gen']."'span class='mini-sub-pro
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="header-top-wraper">
                                 <div class="row">
-                                    <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
-                                        <div class="menu-switcher-pro">
-                                            <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
-													<i class="icon nalika-menu-task"></i>
-												</button>
-                                        </div>
-                                    </div>
                                     <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
                                         <div class="header-top-menu tabl-d-n hd-search-rp">
                                             <div class="breadcome-heading">
@@ -255,14 +286,37 @@ echo "<li><a href='porgenero.php?id=".$fila['id_gen']."'span class='mini-sub-pro
 						
                                         <li><a data-toggle="collapse" data-target="#Charts" href="#">Géneros <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
                                             <ul class="collapse dropdown-header-top">
+                                                
+                                                <?php
+                                                
+                                                if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
+                                                
+                                            echo "<li><a href='generos.php' span class='mini-sub-pro'>Administrar</span></a></li>";
+                                            
+                                                }
+                                            
+                                            ?>
 												<?php
 
                                                 $result2 = mysqli_query($conex, "SELECT * FROM genero ORDER BY 2;");
+                                                
+                                                if (mysqli_num_rows($result2) > 0) {
 
                                                 while ($fila2 = mysqli_fetch_assoc($result2)) {
 
                                                 echo "<li><a href='porgenero.php?id=".$fila2['id_gen']."'span class='mini-sub-pro'>".$fila2['nom_gen']."</span></a></li>";
+                                            
 
+}
+
+}
+
+else {
+    
+     echo "<li><a href=''#'span class='mini-sub-pro'>No hay géneros</span></a></li>";
+                                            
+
+    
 }
 
                                                 ?>
@@ -271,6 +325,20 @@ echo "<li><a href='porgenero.php?id=".$fila['id_gen']."'span class='mini-sub-pro
                                                
                                             </ul>
                                         </li>
+                                        
+                                        <?php
+                                        
+                                        
+                                        if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
+   
+                    echo '<li><a data-toggle="collapse" data-target="#Charts" href="users.php">Usuarios<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a>
+                                        </li>';
+    
+    }
+    
+    ?>
+                                        
+                                        
                                     </ul>
                                 </nav>
                             </div>

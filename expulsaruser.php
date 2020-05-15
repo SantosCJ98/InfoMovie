@@ -19,32 +19,10 @@ td
 
 }
 
-$sqlres = "SELECT * FROM resena WHERE cod_res = ".$_GET['id'].";";
+$sqlres = "SELECT * FROM usuario WHERE cod_us = ".$_GET['id'].";";
 
  $res = mysqli_query($conex, $sqlres);
 
- $resena = mysqli_fetch_assoc($res);
-
- $sqlpel = "SELECT * FROM pelicula WHERE cod_pel = ".$resena['pel_res'].";";
-
- $resultpel = mysqli_query($conex, $sqlpel);
-
- $pelicula = mysqli_fetch_assoc($resultpel);
-
- $sqlgen = "SELECT * FROM genero WHERE id_gen = ".$pelicula['gen_pel'].";";
-
- $resultgen = mysqli_query($conex, $sqlgen);
-
- $genero = mysqli_fetch_assoc($resultgen);
-
-        $resultgen = mysqli_query($conex, $sqlgen);
-
-        $sqlr = "SELECT * FROM usuario WHERE cod_us = ".$resena['us_res'].";";
-
-		$resultr = mysqli_query($conex, $sqlr);
-
-		$nombre = mysqli_fetch_assoc($resultr)['nom_us'];
-        
         if (mysqli_num_rows($res) < 1) {
 
             echo "<script type='text/javascript'>
@@ -72,77 +50,44 @@ $sqlres = "SELECT * FROM resena WHERE cod_res = ".$_GET['id'].";";
 
                                         echo '<h1>Confirmación de borrado</h1>';
                                         
-                                        echo '<h2>¿Está seguro de que desea borrar esta reseña?</h2>';
+                                        echo '<h2>¿Está seguro de que desea expulsar a este usuario? Se borrarán todas las reseñas que haya escrito</h2>';
 
-                                    echo "<table width=100%>
-								<tr>
-								<td align='center'rowspan='5'><img src='".$pelicula['port_pel']."'></td>
-								</tr>
-								<tr>
-								<td><b>Nombre: </b>".$pelicula['nom_pel']."</td>
-								</tr>
-								<tr>
-								<td><b>Fecha de estreno: </b>".$pelicula['fecha_pel']."</td>
-								</tr>
-								<tr>
-								<td><b>Género: </b>".$genero['nom_gen']."</td>
-								</tr>
-								<tr>
-								<td style='width:80%';><b>Sinópsis: </b><br>".$pelicula['desc_pel']."</td>
-                                </tr>";
+                                  echo '<table style="border-collapse: separate;border-spacing: 0px 17px;" width=100%>
+                                        <tr>
+                                        <th>ID</th><th>Nombre</th><th>Email</th><th>Tipo</th>
+                                        </tr>';
+                                        while ($fila = mysqli_fetch_assoc($res)) {
+                                            echo "<tr>
+                                            
+                                            <td>".$fila['cod_us']."</td>
+                                            
+                                             <td>".$fila['nom_us']."</td>
+                                             
+                                             <td>".$fila['em_us']."</td>";
+                                             
+                                             if ($fila['admin_us'] == 1) {
+                                                 
+                                                 echo "<td>Admin</td>";
+                                                 
+                                             }
+                                             
+                                             else if ($fila['admin_us'] == 0)  {
+                                                 
+                                                 echo "<td>Usuario</td>";
+                                                 
+                                             }
+                                            
+                                            
+                                           echo "</tr>";
+                                            
+                                        }
+                                        
+                                        echo "</table>";
 
-                                
+                                echo "<br>
 
-						
-
-                                echo "</table>";
-
-                                echo "<br>";
-
-
-                                echo "<table width=100%>";
-
-		echo "<tr>";
-
-		echo "<td width='70%'> <h4>".$resena['puntos_res']." puntos: ".$resena['titulo_res']."<h4></td>";
-
-		echo "<td> <h4>Escrito por: ".$nombre."<h4></td>";
-
-		echo "</tr>";
-
-		echo "<tr>";
-
-		echo "<td colspan='2'> <h5>".$resena['desc_res']."<h5></td>";
-
-		echo "</tr>";
-
-		echo "</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                <br>
-
-                                <form action='borraresena2.php' method='POST' enctype='multipart/form-data'>
+                                <form action='expulsaruser2.php' method='POST' enctype='multipart/form-data'>
                                 <input type='hidden' name='id' value=".$_GET['id'].">
-                                <input type='hidden' name='idpel' value=".$resena['pel_res'].">
                                 <table width='100%'>
                                 <tr>
                                 <tr style='margin-top:30%;'>

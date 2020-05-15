@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+@session_start();
 
 if (!isset($_POST['si']) || !isset($_POST['no']) || !isset($_SESSION['admin']) || $_SESSION['admin'] == 0) {
     
@@ -21,7 +21,7 @@ if (isset($_POST['si'])) {
     
     $sq = mysqli_query($conex, $q);
 
-    header("Location: exito.php");
+    header("Location: detallepelicula.php?id=".$_POST['idpel']);
 
 }
 
@@ -29,7 +29,7 @@ else {
 
 
 
-header("Location: index.php");
+ header("Location: detallepelicula.php?id=".$_POST['idpel']);
 
 }
 

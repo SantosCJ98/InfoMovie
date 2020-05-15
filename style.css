@@ -27,7 +27,7 @@ html, body {height: 100%; font-family: 'Roboto', sans-serif;font-weight:400;back
 .aligncenter {display:block;margin:0 auto 15px}
 a:focus {outline:0px solid}
 img{max-width:185px;height:278px}
-.main-logo{height:90px}
+.main-logo{height: 70px;}
 .fix {overflow:hidden}
 p {margin:0 0 15px;}
 h1, h2, h3, h4, h5, h6 {

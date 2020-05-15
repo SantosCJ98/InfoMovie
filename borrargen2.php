@@ -17,11 +17,11 @@ include("conex.php");
 
 if (isset($_POST['si'])) {
 
-    $q = "DELETE FROM pelicula WHERE cod_pel = ".$_POST['id'].";";
+    $q = "DELETE FROM genero WHERE id_gen = ".$_POST['id'].";";
     
     $sq = mysqli_query($conex, $q);
 
-    header("Location: exito.php");
+    header("Location: generos.php");
 
 }
 
@@ -29,7 +29,7 @@ else {
 
 
 
-header("Location: index.php");
+header("Location: generos.php");
 
 }
 
