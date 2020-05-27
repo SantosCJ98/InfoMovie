@@ -1,12 +1,10 @@
-  <?php
-	
-	include("inicio.php");
-	
-	?>
-
 <?php
+    include("inicio.php");
 
- $sqlpel = "SELECT * FROM pelicula;";
+
+    $sqlpel = "SELECT * FROM pelicula;";
+
+
 
  $resultpel = mysqli_query($conex, $sqlpel);
 
@@ -22,16 +20,25 @@
 
                                 <h1> Inicio </h1>
 
-                                <?php if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
+                                <?php
 
-                                 echo "<h1><a href='anadirpelicula.php'><button class='btn btn-custon-rounded-three btn-danger'>Añadir pelicula</button></a></h1>";
+              
+
                                 
 
-                                }
+                                    if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
 
-                                  ?>
+                                      echo "<h1><a href='anadirpelicula.php'><button class='btn btn-custon-rounded-three btn-danger'>Añadir pelicula</button></a></h1>";
+                                     
+     
+                                     }
+  
 
-                                <div class="tabla">
+                               
+
+                                ?>
+
+<div class="tabla">
                                   
                                   <?php
 
@@ -85,17 +92,17 @@
 
                                       echo $dyn_table;
 
-                                    }
+  }
 
                                     else {
 
-                                      echo "<br><h2> No hay películas. Lo sentimos. </h2>";
+                                      echo "<br><h2> Ninguna película coincide con lo que buscas. </h2>";
 
                                     }
 
                                     ?>
 
-                                    
+                                    </div>
 
                                 </div>
                             </div>

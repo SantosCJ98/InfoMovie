@@ -2,7 +2,7 @@
 
 
 
-$conex = mysqli_connect("localhost", "root", "", "infomovie")  or die("Error al conectarse a la BBDD");
+$conex = mysqli_connect("127.0.0.1", "root", "", "infomovie")  or die("Error al conectarse a la BBDD");
 
 
 
