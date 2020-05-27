@@ -20,7 +20,7 @@ $q = "SELECT * FROM usuario WHERE em_us = '".$email."' OR nom_us = '".$user."';"
 
 $sq = mysqli_query($conex, $q);
 
-if (mysqli_num_rows($sq) > 0) {
+if (mysqli_num_rows($sq) > 0 || $_POST['pass'] != $_POST['repetir_pass']) {
 
     header("Location: erroregistro.php");
 

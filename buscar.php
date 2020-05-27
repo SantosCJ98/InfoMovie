@@ -1,6 +1,6 @@
 <?php
 
-if (!isset($_POST['buscar'])) {
+if (!isset($_POST['submit']) && !isset($_POST['submit2'])) {
 
     header("Location: index.php");
 
@@ -8,10 +8,27 @@ if (!isset($_POST['buscar'])) {
     include("inicio.php");
 
    
-    
-$busqueda = $_POST['buscar'];
 
- $sqlpel = "SELECT * FROM pelicula WHERE nom_pel LIKE '%".$busqueda."%';";
+ if (isset($_POST['submit'])) {
+
+   $busqueda = $_POST['buscar'];
+
+   $sqlpel = "SELECT * FROM pelicula WHERE nom_pel LIKE '%".$busqueda."%';";
+
+}
+
+else if (isset($_POST['submit2'])) {
+
+  $maximo = max($_POST['año1'], $_POST['año2']);
+
+  $minimo = min($_POST['año1'], $_POST['año2']);  
+
+  $sqlpel = "SELECT * FROM pelicula WHERE YEAR(fecha_pel) BETWEEN $minimo AND $maximo;";
+
+
+}
+
+
 
  $resultpel = mysqli_query($conex, $sqlpel);
 
@@ -27,6 +44,11 @@ $busqueda = $_POST['buscar'];
 
                                 <?php
 
+                                if (isset($_POST['submit'])) {
+
+
+                               
+
                                 if ($busqueda == "") {
 
                                     echo "<h1>Buscando todas las películas.</h1>";
@@ -35,7 +57,27 @@ $busqueda = $_POST['buscar'];
 
                                 else {
 
-                                    echo '<h1>Filtrando por "'.$busqueda.'"</h1>';
+                                  echo '<h1>Buscando por "'.$busqueda.'"</h1>';
+
+                                }
+
+                              }
+
+                              else if (isset($_POST['submit2'])) {
+
+                                    if ($minimo != $maximo) {
+                                    echo "<h1>Buscando por año($minimo-$maximo)</h1>";
+                                    }
+
+                                    else {
+
+                                      echo "<h1>Buscando por año($minimo)</h1>";
+
+                                    }
+
+                                  }
+
+                                
 
                                     if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
 
@@ -43,10 +85,7 @@ $busqueda = $_POST['buscar'];
                                      
      
                                      }
-     
-                                    
-
-                                }
+  
 
                                
 

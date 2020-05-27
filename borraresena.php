@@ -104,7 +104,7 @@ $sqlres = "SELECT * FROM resena WHERE cod_res = ".$_GET['id'].";";
 
 		echo "<tr>";
 
-		echo "<td width='70%'> <h4>".$resena['puntos_res']." puntos: ".$resena['titulo_res']."<h4></td>";
+        echo "<td width='70%'> <h4>".$puntos." puntos: ".$titulo .  $reac."   <h4></td>";
 
 		echo "<td> <h4>Escrito por: ".$nombre."<h4></td>";
 

@@ -21,7 +21,9 @@ $desc = $_POST['desc'];
 
 $puntos = $_POST['puntos'];
 
-$q = "INSERT INTO resena (us_res, pel_res, puntos_res, titulo_res, desc_res) VALUES (".$usuario.", ".$pelicula.", ".$puntos.", '".$titulo."', '".$desc."');";
+$reac = $_POST['reac'];
+
+$q = "INSERT INTO resena (us_res, pel_res, puntos_res, titulo_res, desc_res, reac_res) VALUES (".$usuario.", ".$pelicula.", ".$puntos.", '".$titulo."', '".$desc."', '".$reac."');";
 
 $sq = mysqli_query($conex, $q);
 

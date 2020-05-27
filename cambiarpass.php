@@ -2,7 +2,16 @@
 
 @session_start();
 
-@session_destroy();
+    if (!isset($_SESSION['id'])) {
+    
+
+       echo "<script type='text/javascript'>
+        window.location='index.php';
+        </script>";
+
+    }
+
+
 
 ?>
 
@@ -79,7 +88,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="back-link back-backend">
-                    <a href="register.php" class="btn btn-primary">Volver</a>
+                    <a href="index.php" class="btn btn-primary">Volver</a>
                 </div>
             </div>
         </div>
@@ -89,13 +98,24 @@
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
             <div class="col-md-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="text-center custom-login">
-                    <h3>Se ha producido un error.</h3>
+                    <h3>Cambiar contraseña</h3>
                 </div>
                 <div class="hpanel">
                     <div class="panel-body">
-                        
-                        <h2 style='color:black;'>Es posible que ya haya un usuario registrado con el nombre especificado o las contraseñas no coincidan. Por favor, introduzca otro.</h2>
-
+                        <form action="cambiarpass2.php" method="POST" enctype="multipart/form-data">
+                                <div class="form-group col-lg-12">
+                                    <label>Contraseña actual:</label>
+                                    <input name="pass" required minlength="6" type="password" class="form-control">
+                                </div>
+                                <div class="form-group col-lg-12">
+                                    <label>Nueva contraseña:</label>
+                                    <input name="nueva_pass" required minlength="6" type="password" class="form-control">
+                                </div>
+                                <br>
+                            <div class="text-center">
+                                <button type="submit" name="submit" class="btn btn-success loginbtn">Cambiar contraseña</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

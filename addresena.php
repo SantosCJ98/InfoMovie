@@ -60,16 +60,62 @@ else {
                                         }
 
                                         echo "</tr>
+
+
+
                                         </table>
+                                        
                                         <br>";
 
-                                        echo "<input type='hidden' name='id_pel' value=".$pelicula['cod_pel'].">";
+                                        echo "<br><h5>Tu reacción:</h5>";
 
-                                        echo "<input type='hidden' name='id_us' value=".$_SESSION['id'].">";
+                                        echo "<table width='75%'>
 
-                                        echo "<button type='submit' name='submit' class='btn btn-custon-rounded-two btn-success'>Enviar reseña</button>";
+                                        <tr style='font-size: 40px;'>
+
+                                        <td><input type='radio' required name='reac' value='🤯'>
+                                        <label>🤯</label></td>
+
+                                        
+                                        <td><input type='radio' required name='reac' value='🤣'>
+                                        <label>🤣</label></td>
+
+                                        <td><input type='radio' required name='reac' value='😭'>
+                                        <label>😭</label></td>
+
+                                        <td><input type='radio' required name='reac' value='😴'>
+                                        <label>😴</label></td>
+
+                                        <td><input type='radio' required name='reac' value='😑'>
+                                        <label>😑</label></td>
+
+                                        <td><input type='radio' required name='reac' value='😍'>
+                                        <label>😍</label></td>
+
+                                        
+                                        <td><input type='radio' required name='reac' value='🤮'>
+                                        <label>🤮</label></td>
+
+                                        <td><input type='radio' required name='reac' value='🤔'>
+                                        <label>🤔</label></td>
+
+                                        <td><input type='radio' required name='reac' value='😠'>
+                                        <label>😠</label></td>
+
+
+                                        
+                                       
+                                        </tr>
+
+                                        </table>
+
+                                        <input type='hidden' name='id_pel' value=".$pelicula['cod_pel'].">
+
+                                        <input type='hidden' name='id_us' value=".$_SESSION['id'].">
+
+                                        <button type='submit' name='submit' class='btn btn-custon-rounded-two btn-success'>Enviar reseña</button>
                             
-                                        echo "</form>";
+                                        </form>";
 
                                     ?>
 

@@ -213,6 +213,8 @@ else {
 
 		$puntos = $resena['puntos_res'];
 
+		$reac = $resena['reac_res'];
+
 		echo "<table width=100%>";
 
 		echo "<tr>";
@@ -223,7 +225,7 @@ else {
 
 		}
 
-		echo "<td width='70%'> <h4>".$puntos." puntos: ".$titulo."<h4></td>";
+		echo "<td width='70%'> <h4>".$puntos." puntos: ".$titulo .  $reac."   <h4></td>";
 
 		echo "<td> <h4>Escrito por: ".$nombre."<h4></td>";
 

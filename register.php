@@ -101,9 +101,14 @@
                                 </div>
                                 <div class="form-group col-lg-6">
                                     <label>Contraseña:</label>
-                                    <input name="pass" minlength="6" type="password" class="form-control">
+                                    <input name="pass" minlength="6" required type="password" class="form-control">
                                 </div>
                                 <div class="form-group col-lg-6">
+                                    <label>Repetir contraseña:</label>
+                                    <input name="repetir_pass" required minlength="6" type="password" class="form-control">
+                                </div>
+                                <br>
+                                <div class="form-group col-lg-12">
                                     <label>Email:</label>
                                     <input name="email" type="email" required class="form-control">
                                 </div>

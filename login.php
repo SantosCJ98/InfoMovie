@@ -101,7 +101,7 @@
                                 </div>
                                 <div class="form-group col-lg-12">
                                     <label>Contraseña:</label>
-                                    <input name="pass" minlength="6" type="password" class="form-control">
+                                    <input name="pass" minlength="6" required type="password" class="form-control">
                                 </div>
                             </div>
                             <div class="text-center">

@@ -2,8 +2,6 @@
 
 @session_start();
 
-@session_destroy();
-
 ?>
 
 <!doctype html>
@@ -79,7 +77,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="back-link back-backend">
-                    <a href="register.php" class="btn btn-primary">Volver</a>
+                    <a href="cambiopass.php" class="btn btn-primary">Volver</a>
                 </div>
             </div>
         </div>
@@ -94,7 +92,7 @@
                 <div class="hpanel">
                     <div class="panel-body">
                         
-                        <h2 style='color:black;'>Es posible que ya haya un usuario registrado con el nombre especificado o las contraseñas no coincidan. Por favor, introduzca otro.</h2>
+                        <h2 style='color:black;'>Se introducido una contraseña equivocada o las contraseñas no coinciden. Inténtelo de nuevo.</h2>
 
                     </div>
                 </div>

@@ -189,7 +189,55 @@ else {
                                                     <table width="100%">
                                                     <tr>
 													<td><input type="text" name="buscar" placeholder="Buscar película" class="form-control"></td>
-                                                    <td class="btn-buscar"><button type="submit" class="btn btn-custon-rounded-three btn-primary">Buscar</button></td>
+                                                    <td class="btn-buscar"><button type="submit" name="submit" class="btn btn-custon-rounded-three btn-primary">Buscar por nombre</button></td>
+                                                    </tr>
+
+                                                    </table>
+
+                                                    <br>
+
+                                                    </form>
+
+                                                    <form role="search2" action="buscar.php" method="POST" enctype="multipart/form-data" class="">
+
+                                                    <table width="100%">
+                                                    <tr>
+
+                                                    <td><select name='año1' class="select2_demo_3 form-control">
+                                                    <?php
+
+                                                        for ($i = date('Y'); $i >= 1900; $i--) {
+
+                                                            echo "<option value=".$i.">".$i."</option>";
+
+                                                        }
+
+                                                        ?>
+
+													
+														
+                                                    </select>
+                                                    </td>
+
+                                                    <td>
+                                                    -
+                                                    <td>
+                                                    <td><select name='año2' class="select2_demo_3 form-control">
+                                                    <?php
+
+                                                        for ($i = date('Y'); $i >= 1900; $i--) {
+
+                                                            echo "<option value=".$i.">".$i."</option>";
+
+                                                        }
+
+                                                        ?>
+
+													
+														
+                                                    </select>
+                                                    </td>
+                                                    <td class="btn-buscar"><button type="submit" name="submit2" class="btn btn-custon-rounded-three btn-primary">Buscar por año</button></td>
 													</tr>
                                                     </table>
 												</form>
@@ -199,6 +247,7 @@ else {
                                     <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                         <div class="header-right-info">
                                             <ul class="nav navbar-nav mai-top-nav header-right-menu">
+                                            <br>
                                                 <li class="nav-item">
                                                     <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
 															<i class="icon nalika-user"></i>
@@ -232,6 +281,8 @@ else {
                                                         ?>
                                                         <?php
                                                         if (isset($_SESSION['user'])) {
+                                                        echo "<li><a href='cambiarpass.php'><span class='icon nalika-settings author-log-ic'></span> Cambiar contraseña</a>
+                                                        </li>";
                                                         echo "<li><a href='logout.php'><span class='icon nalika-unlocked author-log-ic'></span> Cerrar Sesión</a>
                                                         </li>";
                                                         }
