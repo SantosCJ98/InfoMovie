@@ -88,8 +88,18 @@ include("conex.php");
               
                     <ul class="metismenu" id="menu1">
 
-                  <li><a class="has-arrow" href="#" aria-expanded="false"><i class="icon nalika-diamond icon-wrap"></i> <span class="mini-click-non">Películas</span></a>
+                  <li><a class="has-arrow" href="#" aria-expanded="false"><i class="icon nalika-youtube"></i> <span class="mini-click-non">Películas</span></a>
 					<ul class="submenu-angle" aria-expanded="false">
+
+                    <?php
+                    if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
+
+                   echo "<li><a href='sincronizar.php' span class='mini-sub-pro'>Sincronizar</span></a></li>";
+                   
+                     }
+
+                    ?>
+
 					<li><a href='porinicial.php?id=0'span class='mini-sub-pro'>Del 0 al 9</span></a></li>
 					<li><a href='porinicial.php?id=1'><span class='mini-sub-pro'>De la A a la N</span></a></li>
 					<li><a href='porinicial.php?id=2'><span class='mini-sub-pro'>De la O a la Z</span></a></li>
@@ -101,7 +111,7 @@ include("conex.php");
                     <li>
 
 
-    <a class="has-arrow" href="#" aria-expanded="false"><i class="icon nalika-diamond icon-wrap"></i> <span class="mini-click-non">Géneros</span></a>
+    <a class="has-arrow" href="#" aria-expanded="false"><i class="icon nalika-folder"></i> <span class="mini-click-non">Géneros</span></a>
     <ul class="submenu-angle" aria-expanded="false">
         
          <?php
@@ -149,7 +159,7 @@ else {
                     echo '<li>
 
 
-    <a href="users.php" aria-expanded="false"><i class="icon nalika-diamond icon-wrap"></i> <span class="mini-click-non">Usuarios</span></a>
+    <a href="users.php" aria-expanded="false"><i class="icon nalika-user"></i> <span class="mini-click-non">Usuarios</span></a>
     
     </li>';
     
@@ -250,7 +260,7 @@ else {
                                             <br>
                                                 <li class="nav-item">
                                                     <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
-															<i class="icon nalika-user"></i>
+															<i class="icon nalika-menu"></i>
                                                             <span class="admin-name">
                                                             <?php
                                                             

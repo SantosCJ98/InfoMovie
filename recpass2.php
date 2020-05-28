@@ -4,6 +4,23 @@
 
 @session_destroy();
 
+
+if (!isset($_POST['submit'])) {
+
+  header("Location: index.php");
+
+}
+
+include("conex.php");
+
+$email = $_POST['email'];
+
+$sql = "SELECT * FROM usuario WHERE em_us = '$email';";
+
+$result = mysqli_query($conex, $sql);
+
+
+
 ?>
 
 <!doctype html>
@@ -79,7 +96,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="back-link back-backend">
-                    <a href="index.php" class="btn btn-primary">Volver</a>
+                    <a href="recpass.php" class="btn btn-primary">Volver</a>
                 </div>
             </div>
         </div>
@@ -89,26 +106,41 @@
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
             <div class="col-md-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="text-center custom-login">
-                    <h3>Iniciar Sesión</h3>
+                    <h3>Recuperar contraseña</h3>
                 </div>
                 <div class="hpanel">
                     <div class="panel-body">
-                        <form action="login2.php" method="POST" enctype="multipart/form-data">
-                            <div class="row">
-                                <div class="form-group col-lg-12">
-                                    <label>Email:</label>
-                                    <input name="email" type="email" required class="form-control">
-                                </div>
-                                <div class="form-group col-lg-12">
-                                    <label>Contraseña:</label>
-                                    <input name="pass" minlength="6" required type="password" class="form-control">
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <button type="submit" name="submit" class="btn btn-success loginbtn">Iniciar Sesión</button>
-                            </div>
-                            <a href="recpass.php">¿Has olvidado la contraseña?</a>
-                        </form>
+                       
+                       <?php
+
+                        if (mysqli_num_rows($result) > 0) {
+
+                          $str = "0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
+
+                          $str = str_shuffle($str);
+
+                          $str = substr($str, 0, 10);
+
+                          $url = "http://localhost/proyecto/InfoMovie/recpass3.php?token=$str&email=$email";
+
+                         mail($email, "InfoMovie - Recuperar contraseña", "Usted ha solicitado una recuperación de contraseña a este email. Para proceder, haga click en este enlace: $url", "From: InfoMovie <infomoviedam@gmail.com> \r\n");
+                       
+                         $sql2 = "UPDATE usuario SET token_us = '$str' WHERE em_us = '$email';";
+
+                        $result2 = mysqli_query($conex, $sql2);
+
+                        echo "<h1 style='color:black;'> Revise su correo para continuar con la recuperación de la contraseña </h1>";
+
+                        }
+
+                        else {
+
+                          echo "<h1 style='color:black;'> El email especificado no existe </h1>";
+
+                        }
+
+                       ?>
+
                     </div>
                 </div>
             </div>

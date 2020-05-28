@@ -89,25 +89,20 @@
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
             <div class="col-md-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="text-center custom-login">
-                    <h3>Iniciar Sesión</h3>
+                    <h3>Recuperar contraseña</h3>
                 </div>
                 <div class="hpanel">
                     <div class="panel-body">
-                        <form action="login2.php" method="POST" enctype="multipart/form-data">
+                        <form action="recpass2.php" method="POST" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="form-group col-lg-12">
-                                    <label>Email:</label>
-                                    <input name="email" type="email" required class="form-control">
-                                </div>
-                                <div class="form-group col-lg-12">
-                                    <label>Contraseña:</label>
-                                    <input name="pass" minlength="6" required type="password" class="form-control">
+                                    <label>Email de la cuenta:</label>
+                                    <input name="email" name="email" type="email" required class="form-control">
                                 </div>
                             </div>
                             <div class="text-center">
-                                <button type="submit" name="submit" class="btn btn-success loginbtn">Iniciar Sesión</button>
+                                <button type="submit" name="submit" class="btn btn-success loginbtn">Enviar</button>
                             </div>
-                            <a href="recpass.php">¿Has olvidado la contraseña?</a>
                         </form>
                     </div>
                 </div>

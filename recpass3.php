@@ -4,6 +4,30 @@
 
 @session_destroy();
 
+if (!isset($_GET['email']) || !isset($_GET['token'])) {
+
+  header("Location: login.php");
+
+}
+
+include("conex.php");
+
+$sql = "SELECT * FROM usuario WHERE em_us = '".$_GET['email']."' AND token_us = '".$_GET['token']."';";
+$result = mysqli_query($conex, $sql);
+$us = mysqli_fetch_assoc($result);
+
+$nombre = $us['nom_us'];
+
+$id = $us['cod_us'];
+
+if (mysqli_num_rows($result) < 1) {
+
+  echo "<script type='text/javascript'>
+  window.location='login.php';
+  </script>";
+
+}
+
 ?>
 
 <!doctype html>
@@ -79,7 +103,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="back-link back-backend">
-                    <a href="index.php" class="btn btn-primary">Volver</a>
+                    <a href="login.php" class="btn btn-primary">Volver</a>
                 </div>
             </div>
         </div>
@@ -89,25 +113,25 @@
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
             <div class="col-md-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="text-center custom-login">
-                    <h3>Iniciar Sesión</h3>
+                    <h3>Recuperar contraseña de <?php echo $nombre; ?></h3>
                 </div>
                 <div class="hpanel">
                     <div class="panel-body">
-                        <form action="login2.php" method="POST" enctype="multipart/form-data">
-                            <div class="row">
-                                <div class="form-group col-lg-12">
-                                    <label>Email:</label>
-                                    <input name="email" type="email" required class="form-control">
-                                </div>
-                                <div class="form-group col-lg-12">
-                                    <label>Contraseña:</label>
+                        <form action="recpass4.php" method="POST" enctype="multipart/form-data">
+                        <div class="row">
+                        <div class="form-group col-lg-12">
+                                    <label>Nueva contraseña:</label>
                                     <input name="pass" minlength="6" required type="password" class="form-control">
                                 </div>
-                            </div>
+                                <div class="form-group col-lg-12">
+                                    <label>Repetir nueva contraseña:</label>
+                                    <input name="repetir_pass" required minlength="6" type="password" class="form-control">
+                                </div>
+                                </div>
                             <div class="text-center">
-                                <button type="submit" name="submit" class="btn btn-success loginbtn">Iniciar Sesión</button>
+                                <button type="submit" name="submit" class="btn btn-success loginbtn">Recuperar contraseña</button>
                             </div>
-                            <a href="recpass.php">¿Has olvidado la contraseña?</a>
+                            <?php echo '<input type="hidden" name="id" value="'.$id.'">'; ?>
                         </form>
                     </div>
                 </div>

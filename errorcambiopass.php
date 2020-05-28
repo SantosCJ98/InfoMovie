@@ -77,7 +77,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="back-link back-backend">
-                    <a href="cambiopass.php" class="btn btn-primary">Volver</a>
+                    <a href="cambiarpass.php" class="btn btn-primary">Volver</a>
                 </div>
             </div>
         </div>
@@ -92,7 +92,7 @@
                 <div class="hpanel">
                     <div class="panel-body">
                         
-                        <h2 style='color:black;'>Se introducido una contraseña equivocada o las contraseñas no coinciden. Inténtelo de nuevo.</h2>
+                        <h2 style='color:black;'>Se ha introducido una contraseña equivocada o las contraseñas no coinciden. Inténtelo de nuevo.</h2>
 
                     </div>
                 </div>

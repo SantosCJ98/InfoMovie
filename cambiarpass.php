@@ -111,6 +111,10 @@
                                     <label>Nueva contraseña:</label>
                                     <input name="nueva_pass" required minlength="6" type="password" class="form-control">
                                 </div>
+                                <div class="form-group col-lg-12">
+                                    <label>Repetir nueva contraseña:</label>
+                                    <input name="nueva_pass2" required minlength="6" type="password" class="form-control">
+                                </div>
                                 <br>
                             <div class="text-center">
                                 <button type="submit" name="submit" class="btn btn-success loginbtn">Cambiar contraseña</button>

@@ -94,7 +94,7 @@
                 <div class="hpanel">
                     <div class="panel-body">
                         
-                        <h2 style='color:black;'>Es posible que ya haya un usuario registrado con el nombre especificado o las contraseñas no coincidan. Por favor, introduzca otro.</h2>
+                        <h2 style='color:black;'>Es posible que ya haya un usuario registrado con el nombre especificado que las contraseñas no coincidan, o que el email no exista. Por favor, revise los datos.</h2>
 
                     </div>
                 </div>

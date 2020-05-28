@@ -21,7 +21,7 @@ $sq = mysqli_query($conex, $q);
 
 if (md5($_POST['pass']) == mysqli_fetch_assoc($sq)['pass_us']) {
 
-    if ($_POST['pass'] != $_POST['nueva_pass']) {
+    if ($_POST['pass'] != $_POST['nueva_pass'] && $_POST['nueva_pass'] == $_POST['nueva_pass2']) {
 
         $q2 = "UPDATE usuario SET pass_us = '".md5($_POST['nueva_pass'])."' WHERE cod_us = ".$_SESSION['id'].";";
     
