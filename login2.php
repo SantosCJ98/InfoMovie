@@ -14,7 +14,7 @@ $pass = md5($_POST['pass']);
 
 $email = $_POST['email'];
 
-$q = "SELECT * FROM usuario WHERE em_us = '".$email."' AND pass_us = '".$pass."';";
+$q = "SELECT * FROM usuario WHERE em_us = '".$email."' AND pass_us = '".$pass."' AND veri_us = 1;";
 
 $sq = mysqli_query($conex, $q);
 

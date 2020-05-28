@@ -151,7 +151,7 @@ else {
 
                                     else {
 
-                                      echo "<br><h2> No hay películas. Lo sentimos. </h2>";
+                                        echo "<br><h2> Ninguna película coincide con lo que buscas. </h2>";
 
                                     }
 
