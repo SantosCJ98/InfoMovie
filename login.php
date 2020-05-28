@@ -104,10 +104,20 @@
                                     <input name="pass" minlength="6" required type="password" class="form-control">
                                 </div>
                             </div>
+                            <table width="100%">
+                            <tr>
+                            <td>
+                            <a href="recpass.php">¿Has olvidado la contraseña?</a>
+                            </td>  
+                            <td align="end">
+                            <a href="register.php">¿No tienes cuenta? Regístrate</a>
+                            </td>
+                            </tr>
+                            </table>
                             <div class="text-center">
                                 <button type="submit" name="submit" class="btn btn-success loginbtn">Iniciar Sesión</button>
                             </div>
-                            <a href="recpass.php">¿Has olvidado la contraseña?</a>
+                         
                         </form>
                     </div>
                 </div>

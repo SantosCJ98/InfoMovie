@@ -113,6 +113,7 @@
                                     <input name="email" type="email" required class="form-control">
                                 </div>
                             </div>
+                           <a href="login.php">¿Ya tienes cuenta? Inicia Sesión</a>
                             <div class="text-center">
                                 <button type="submit" name="submit" class="btn btn-success loginbtn">Registrarse</button>
                             </div>

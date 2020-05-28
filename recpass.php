@@ -100,6 +100,16 @@
                                     <input name="email" name="email" type="email" required class="form-control">
                                 </div>
                             </div>
+                            <table width="100%">
+                            <tr>
+                            <td>
+                            <a href="register.php">¿No tienes cuenta? Regístrate</a>
+                            </td>  
+                            <td align="end">
+                            <a href="login.php">¿Ya tienes cuenta? Inicia Sesión</a>
+                            </td>
+                            </tr>
+                            </table>
                             <div class="text-center">
                                 <button type="submit" name="submit" class="btn btn-success loginbtn">Enviar</button>
                             </div>
