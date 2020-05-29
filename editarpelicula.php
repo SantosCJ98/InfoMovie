@@ -36,6 +36,10 @@ $sqlpel = "SELECT * FROM pelicula WHERE cod_pel = ".$_GET['id'].";";
 
  $fecha = $pelicula['fecha_pel'];
 
+ $catalogar = $pelicula['cat_pel'];
+
+ $sincronizar = $pelicula['sinc_pel'];
+
 $sql = "SELECT * FROM genero;";
 
  $result = mysqli_query($conex, $sql);
@@ -97,6 +101,53 @@ $sql = "SELECT * FROM genero;";
                                         <span class='input-group-addon'><i class='fa fa-calendar'></i></span>
                                         <input type='date' required name='fecha' class='form-control' value='".$fecha."' placeholder='YYYY-MM-DD'>
                                         </div>";
+
+                                        echo "<br>";
+
+                                        echo "<br><h5>¿Catalogar?:</h5>";
+
+                                        echo "<select name='cat' class='select2_demo_3 form-control'>";
+
+                                                            if ($catalogar == 1) {
+
+                                                                echo "<option selected value='1'>Sí</option>
+
+                                                                <option value='0'>No</option>";
+
+                                                            }
+
+                                                            else {
+
+                                                                echo "<option value='1'>Sí</option>
+
+                                                                <option selected value='0'>No</option>";
+
+                                                            }
+
+                                                                 echo "</select>";
+
+
+                                        echo "<br><h5>¿Sincronizar?:</h5>";
+
+                                        echo "<select name='sinc' class='select2_demo_3 form-control'>";
+
+                                                            if ($sincronizar == 1) {
+
+                                                                echo "<option selected value='1'>Sí</option>
+
+                                                                <option value='0'>No</option>";
+
+                                                            }
+
+                                                            else {
+
+                                                                echo "<option value='1'>Sí</option>
+
+                                                                <option selected value='0'>No</option>";
+
+                                                            }
+
+                                                               echo "</select>";
 
                                         echo "<br>";
 

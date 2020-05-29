@@ -18,8 +18,18 @@ else {
 
     $idGénero = $_GET['id'];
 
+    if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
 
-        $sqlpel = "SELECT * FROM pelicula WHERE gen_pel = ".$idGénero." and cat_pel = 1;";
+      $sqlpel = "SELECT * FROM pelicula WHERE gen_pel = ".$idGénero.";";
+  
+      }
+  
+      else {
+  
+        $sqlpel = "SELECT * FROM pelicula WHERE gen_pel = ".$idGénero." AND cat_pel = 1;";
+        
+      }
+
 
         $sqlgen = "SELECT * FROM genero WHERE id_gen = ".$idGénero.";";
 

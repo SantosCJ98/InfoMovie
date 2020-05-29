@@ -35,11 +35,15 @@ $genero = $_POST['genero'];
 
 $fecha = $_POST['fecha'];
 
+$sinc = $_POST['sinc'];
+
+$cat = $_POST['cat'];
+
 if (filter_var($portada, FILTER_VALIDATE_URL)) {
 
   if (endsWith($portada, ".jpg") || endsWith($portada, ".png") || endsWith($portada, ".gif")) {
 
-$q = "UPDATE pelicula SET nom_pel = '".$titulo."', desc_pel = '".$desc."', fecha_pel = '".$fecha."', gen_pel = ".$genero." WHERE cod_pel = " .$_POST['id'].";";
+$q = "UPDATE pelicula SET nom_pel = '".$titulo."', desc_pel = '".$desc."', fecha_pel = '".$fecha."', gen_pel = ".$genero.", cat_pel = ".$cat.", sinc_pel = ".$sinc." WHERE cod_pel = " .$_POST['id'].";";
 
 
 $sq = mysqli_query($conex, $q);

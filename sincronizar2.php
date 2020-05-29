@@ -88,17 +88,27 @@ for ($i = 0; $i < count($arraypels); $i++) {
 
     $rs = mysqli_query($conex, $s);
 
-    $rs2 = mysqli_fetch_assoc($rs);
+   
 
     if (mysqli_num_rows($rs) > 0) {
 
-    $sinc = $rs2['sinc_pel'];
+    $rs2 = mysqli_fetch_assoc($rs);
 
-    }
+    $sinc = $rs2['sinc_pel'];
 
     if ($sinc == 1) {
 
     $sql = "INSERT INTO pelicula (cod_pel, nom_pel, desc_pel, port_pel, fecha_pel, gen_pel, cat_pel, sinc_pel) VALUES (".$id.", '".$nombre."', '".$sinopsis."', '".$poster."', '".$fecha_pel."', ".$genero.", 1, ".$sinc.") ON DUPLICATE KEY UPDATE cat_pel = 1;";
+    
+    $result = mysqli_query($conex, $sql);
+
+    }
+
+    }
+
+    else {
+
+    $sql = "INSERT INTO pelicula (cod_pel, nom_pel, desc_pel, port_pel, fecha_pel, gen_pel, cat_pel, sinc_pel) VALUES (".$id.", '".$nombre."', '".$sinopsis."', '".$poster."', '".$fecha_pel."', ".$genero.", 1, 1) ON DUPLICATE KEY UPDATE cat_pel = 1;";
     
     $result = mysqli_query($conex, $sql);
 

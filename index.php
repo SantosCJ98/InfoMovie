@@ -1,8 +1,17 @@
 <?php
     include("inicio.php");
 
+    if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
 
-    $sqlpel = "SELECT * FROM pelicula WHERE cat_pel = 1;";
+    $sqlpel = "SELECT * FROM pelicula;";
+
+    }
+
+    else {
+
+      $sqlpel = "SELECT * FROM pelicula WHERE cat_pel = 1;";
+      
+    }
 
 
 

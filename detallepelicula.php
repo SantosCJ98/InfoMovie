@@ -36,7 +36,7 @@ if (!isset($_GET['id']) || $_GET['id'] == null) {
 
 		$pelicula = mysqli_fetch_assoc($resultpel);
 
-		if ($pelicula['cat_pel'] = 0) {
+		if ((isset($_SESSION['admin']) && $_SESSION['admin'] == 0 && $pelicula['cat_pel'] == 0) || (!isset($_SESSION['admin']) && $pelicula['cat_pel'] == 0)) {
 
 				echo "<script type='text/javascript'>
 				window.location='index.php';
