@@ -13,7 +13,7 @@ if (!isset($_POST['submit']) && !isset($_POST['submit2'])) {
 
    $busqueda = $_POST['buscar'];
 
-   $sqlpel = "SELECT * FROM pelicula WHERE nom_pel LIKE '%".$busqueda."%';";
+   $sqlpel = "SELECT * FROM pelicula WHERE nom_pel LIKE '%".$busqueda."%' AND cat_pel = 1;";
 
 }
 

@@ -36,6 +36,14 @@ if (!isset($_GET['id']) || $_GET['id'] == null) {
 
 		$pelicula = mysqli_fetch_assoc($resultpel);
 
+		if ($_SESSION['admin'] == 0 && $pelicula['cat_pel'] = 0) {
+
+				echo "<script type='text/javascript'>
+				window.location='index.php';
+				</script>";
+
+		}
+
 		$sqlgen = "SELECT * FROM genero WHERE id_gen = ".$pelicula['gen_pel'].";";
 
 		$resultgen = mysqli_query($conex, $sqlgen);

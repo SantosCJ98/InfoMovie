@@ -22,7 +22,7 @@ else {
 
     if ($idInicial == 0) {
         
-        $sqlpel = "SELECT * FROM pelicula WHERE nom_pel BETWEEN '0%' AND '9%' ORDER BY nom_pel;";
+        $sqlpel = "SELECT * FROM pelicula WHERE cat_pel = 1 AND nom_pel BETWEEN '0%' AND '9%' AND ORDER BY nom_pel;";
 
         $cadInicial = "Películas del 0 al 9";
 
@@ -30,7 +30,7 @@ else {
 
     else if ($idInicial == 1) {
 
-        $sqlpel = "SELECT * FROM pelicula WHERE nom_pel BETWEEN 'A%' AND 'N%' ORDER BY nom_pel ;";
+        $sqlpel = "SELECT * FROM pelicula WHERE cat_pel = 1 AND nom_pel BETWEEN 'A%' AND 'N%' ORDER BY nom_pel ;";
 
         $cadInicial = "Películas de la A a la N";
 
@@ -38,7 +38,7 @@ else {
 
     else if ($idInicial == 2) {
 
-        $sqlpel = "SELECT * FROM pelicula WHERE nom_pel BETWEEN 'O%' AND 'Z%' ORDER BY nom_pel;";
+        $sqlpel = "SELECT * FROM pelicula WHERE cat_pel = 1 AND nom_pel BETWEEN 'O%' AND 'Z%' ORDER BY nom_pel;";
 
         $cadInicial = "Películas de la O a la Z";
 
@@ -46,7 +46,7 @@ else {
 
     else if ($idInicial == 3) {
 
-        $sqlpel = "SELECT * FROM pelicula WHERE nom_pel NOT BETWEEN '0%' AND '9%' AND nom_pel NOT BETWEEN 'A%' AND 'Z%'  ORDER BY nom_pel;";
+        $sqlpel = "SELECT * FROM pelicula WHERE cat_pel = 1 AND nom_pel NOT BETWEEN '0%' AND '9%' AND nom_pel NOT BETWEEN 'A%' AND 'Z%'  ORDER BY nom_pel;";
 
         $cadInicial = "Películas con otros caracteres.";
 

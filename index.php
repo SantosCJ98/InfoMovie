@@ -2,7 +2,7 @@
     include("inicio.php");
 
 
-    $sqlpel = "SELECT * FROM pelicula;";
+    $sqlpel = "SELECT * FROM pelicula WHERE cat_pel = 1;";
 
 
 

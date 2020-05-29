@@ -19,7 +19,7 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] == 0) {
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Register | Nalika - Material Admin Template</title>
+    <title>InfoMovie</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon

@@ -19,7 +19,7 @@ else {
     $idGénero = $_GET['id'];
 
 
-        $sqlpel = "SELECT * FROM pelicula WHERE gen_pel = ".$idGénero.";";
+        $sqlpel = "SELECT * FROM pelicula WHERE gen_pel = ".$idGénero." and cat_pel = 1;";
 
         $sqlgen = "SELECT * FROM genero WHERE id_gen = ".$idGénero.";";
 

@@ -84,16 +84,34 @@ for ($i = 0; $i < count($arraypels); $i++) {
 
     $poster = "http://image.tmdb.org/t/p/w185" . $pelicula['poster_path'];
 
-    $sql = "INSERT INTO pelicula (cod_pel, nom_pel, desc_pel, port_pel, fecha_pel, gen_pel) VALUES (".$id.", '".$nombre."', '".$sinopsis."', '".$poster."', '".$fecha_pel."', ".$genero.");";
+    $s = "SELECT * FROM pelicula WHERE cod_pel = ".$id.";";
 
+    $rs = mysqli_query($conex, $s);
+
+    $rs2 = mysqli_fetch_assoc($rs);
+
+    if (mysqli_num_rows($rs) > 0) {
+
+    $sinc = $rs2['sinc_pel'];
+
+    }
+
+    if ($sinc == 1) {
+
+    $sql = "INSERT INTO pelicula (cod_pel, nom_pel, desc_pel, port_pel, fecha_pel, gen_pel, cat_pel, sinc_pel) VALUES (".$id.", '".$nombre."', '".$sinopsis."', '".$poster."', '".$fecha_pel."', ".$genero.", 1, ".$sinc.") ON DUPLICATE KEY UPDATE cat_pel = 1;";
+    
     $result = mysqli_query($conex, $sql);
 
-}
+    }
+
+  
+
+
 
 }
 
-
-header("Location: index.php")
+}
+ header("Location: index.php")
 
 
 ?>
