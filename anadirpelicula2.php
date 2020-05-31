@@ -42,7 +42,7 @@ if (filter_var($portada, FILTER_VALIDATE_URL)) {
 
     if (endsWith($portada, ".jpg") || endsWith($portada, ".png") || endsWith($portada, ".gif")) {
 
-        $q = "INSERT INTO pelicula (nom_pel, desc_pel, port_pel, fecha_pel, gen_pel, cat_pel, sinc_pel) VALUES ('".$titulo."', '".$desc."', '".$portada."', '".$fecha."', ".$genero.", 0, 1);";
+        $q = "INSERT INTO pelicula (nom_pel, desc_pel, port_pel, fecha_pel, gen_pel, cat_pel, sinc_pel) VALUES ('".$titulo."', '".$desc."', '".$portada."', '".$fecha."', ".$genero.", 1, 1);";
 
     $sq = mysqli_query($conex, $q);
 

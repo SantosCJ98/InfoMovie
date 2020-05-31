@@ -121,7 +121,7 @@ $result = mysqli_query($conex, $sql);
 
                           $str = substr($str, 0, 10);
 
-                          $url = "https://ifproject.000webhostapp.com/recpass3.php?token=$str&email=$email";
+                          $url = "http://localhost/proyecto/InfoMovie/recpass3.php?token=$str&email=$email";
 
                          mail($email, "InfoMovie - Recuperar contraseña", "Usted ha solicitado una recuperación de contraseña a este email. Para proceder, haga click en este enlace: $url", "From: InfoMovie <infomoviedam@gmail.com> \r\n");
                        

@@ -144,7 +144,7 @@ $result = mysqli_query($conex, $sql);
 
                            
   
-                            $url = "https://ifproject.000webhostapp.com/register3.php?token=$str&email=$email";
+                            $url = "http://localhost/proyecto/InfoMovie/register3.php?token=$str&email=$email";
   
                            mail($email, "InfoMovie - Verificación de email", "Usted ha solicitado un registro de usuario en la página InfoMovie. Para proceder, haga click en este enlace: $url", "From: InfoMovie <infomoviedam@gmail.com> \r\n");
 
