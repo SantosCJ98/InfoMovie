@@ -106,6 +106,7 @@
                                     else {
 
                                       echo "<br><h2> No hay películas. Lo sentimos. </h2>";
+                                
 
                                     }
 

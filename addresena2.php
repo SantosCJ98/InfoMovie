@@ -27,6 +27,8 @@ $q = "INSERT INTO resena (us_res, pel_res, puntos_res, titulo_res, desc_res, rea
 
 $sq = mysqli_query($conex, $q);
 
-header("Location: detallepelicula.php?id=".$pelicula);
+echo "<script type='text/javascript'>
+        window.location='detallepelicula.php?id=".$pelicula."';
+        </script>";
 
 ?>

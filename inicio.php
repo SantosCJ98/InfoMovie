@@ -292,6 +292,8 @@ else {
                                                         if (isset($_SESSION['user'])) {
                                                         echo "<li><a href='cambiarpass.php'><span class='icon nalika-settings author-log-ic'></span> Cambiar contraseña</a>
                                                         </li>";
+                                                         echo "<li><a href='login.php'><span class='icon nalika-user author-log-ic'></span> Cambiar de usuario</a>
+                                                        </li>";
                                                         echo "<li><a href='logout.php'><span class='icon nalika-unlocked author-log-ic'></span> Cerrar Sesión</a>
                                                         </li>";
                                                         }

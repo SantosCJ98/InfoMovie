@@ -24,13 +24,13 @@ else {
 
         if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
 
-            $sqlpel = "SELECT * FROM pelicula WHERE nom_pel BETWEEN '0%' AND '9%' AND ORDER BY nom_pel;";
+            $sqlpel = "SELECT * FROM pelicula WHERE nom_pel BETWEEN '0%' AND '9%' ORDER BY nom_pel;";
         
             }
         
             else {
         
-                $sqlpel = "SELECT * FROM pelicula WHERE cat_pel = 1 AND nom_pel BETWEEN '0%' AND '9%' AND ORDER BY nom_pel;";
+                $sqlpel = "SELECT * FROM pelicula WHERE cat_pel = 1 AND nom_pel BETWEEN '0%' AND '9%' ORDER BY nom_pel;";
               
             }
         
@@ -199,6 +199,7 @@ else {
                                     else {
 
                                         echo "<br><h2> Ninguna película coincide con lo que buscas. </h2>";
+                                        
 
                                     }
 
